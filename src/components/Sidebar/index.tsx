@@ -105,7 +105,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   {/* <!-- My Spaces Item Discussion Space --> */}
                   <li>
                     <Link
-                      href="/calendar"
+                      href="/Discussion Space"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                         pathname.includes("calendar") &&
                         "bg-sky-400 dark:bg-meta-4"

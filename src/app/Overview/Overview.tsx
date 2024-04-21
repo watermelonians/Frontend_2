@@ -3,7 +3,7 @@ import ChartOne from "@/components/Charts/ChartOne";
 import ChartThree from "@/components/Charts/ChartThree";
 import ChartTwo from "@/components/Charts/ChartTwo";
 import MapOne from "@/components/Maps/MapOne";
-import RatioRepresentation from "@/components/Overview/RatioRepresentation";
+import RatioRepresentation from "@/components/RatioRepresentation/RatioRepresentation";
 import TableOne from "@/components/Tables/TableOne";
 import React from "react";
 
@@ -16,7 +16,7 @@ const Overview: React.FC = () => {
         <RatioRepresentation value={60} title={"Teacher Satisfactory"}/>
         <RatioRepresentation value={70} title={"Module Satisfactory"}/>
       </div>
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+      <div className="mt-4 grid grid-cols-12 gap-2 md:mt-6 md:gap-4 2xl:mt-7.5 2xl:gap-4">
         <div className="col-span-8 xl:col-span-8">
           <TableOne />
         </div>

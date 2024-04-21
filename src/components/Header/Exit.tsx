@@ -11,7 +11,7 @@ const Exit = () => {
         ref={trigger}
         onClick={() => {
         }}
-        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-lg border-[0.5px] border-stroke bg-[#E3EFFB] hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
+        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-lg border-[0.5px] border-stroke bg-[#E3EFFB] hover:text-primary dark:border-strokedark dark:bg-[#0A2744] dark:text-white"
         href="#"
       >
         <svg

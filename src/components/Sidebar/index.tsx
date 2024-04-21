@@ -105,9 +105,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   {/* <!-- My Spaces Item Discussion Space --> */}
                   <li>
                     <Link
-                      href="/calendar"
+                      href="/DiscussionSpace"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
-                        pathname.includes("calendar") &&
+                        pathname.includes("DiscussionSpace") &&
                         "bg-sky-400 dark:bg-meta-4"
                       }`}
                     >
@@ -132,9 +132,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   {/* <!-- My Spaces Item Feedback Board --> */}
                   <li>
                     <Link
-                      href="/"
+                      href="/FeedbackBoard"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
-                        pathname.includes("Dashboard") &&
+                        pathname.includes("FeedbackBoard") &&
                         "bg-sky-400 dark:bg-meta-4"
                       }`}
                     >
@@ -166,9 +166,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   {/* <!-- Community Space Item Public Space --> */}
                   <li>
                     <Link
-                      href="/tables"
+                      href="/PublicSpace"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
-                        pathname.includes("tables") &&
+                        pathname.includes("PublicSpace") &&
                         "bg-sky-400 dark:bg-meta-4"
                       }`}
                     >

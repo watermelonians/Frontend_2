@@ -2,8 +2,11 @@
 import ChartOne from "@/components/Charts/ChartOne";
 import ChartThree from "@/components/Charts/ChartThree";
 import ChartTwo from "@/components/Charts/ChartTwo";
+import ClubsSatisfactioncard from "@/components/ClubsSatisfactionCard/page";
+import GeneralLogisticStatsCard from "@/components/GeneralLogisticStats/GeneralLogisticStats";
 import MapOne from "@/components/Maps/MapOne";
 import RatioRepresentation from "@/components/RatioRepresentation/RatioRepresentation";
+import ResidancyStudentsSatisfactionCard from "@/components/ResidancyStudentsSatisfactionCard/ResidancyStudentsSatisfactionCard";
 import TableOne from "@/components/Tables/TableOne";
 import React from "react";
 
@@ -21,9 +24,9 @@ const Overview: React.FC = () => {
           <TableOne />
         </div>
         <ChartOne />
-        <ChartTwo />
-        <ChartThree />
-        <MapOne />
+        <ClubsSatisfactioncard value={45} activity={15} report={20}></ClubsSatisfactioncard>
+        <GeneralLogisticStatsCard ClassroomsState={76} Amphitheaters={60} LasbsState={50} StudyRooms={30}></GeneralLogisticStatsCard>
+        <ResidancyStudentsSatisfactionCard value={65}></ResidancyStudentsSatisfactionCard>
       </div>
     </>
   );

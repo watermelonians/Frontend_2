@@ -24,10 +24,10 @@ const RatioRepresentation: React.FC<RatioRepresentationProps> = ({
       <div className="font-bold text-base text-black dark:text-white w-fit ml-2 mt-2">{title}</div>
       <div className='flex flex-row'>
         <div className="flex flex-col p-2">
-          <div className=" font-semibold text-sm text-black dark:text-white w-fit">{getLevel(value/100)}</div>
+          <div className=" font-semibold text-sm text-[#636B74] w-fit">{getLevel(value/100)}</div>
           <div className="flex flex-row">
             {/* Dropdown for Measure period */}
-            <div className="font-normal text-xs text-black dark:text-white">Measure period</div>
+            <div className="font-normal text-xs text-[#9FA6AD]">Measure period</div>
             <button id="menu-button" aria-expanded="true" aria-haspopup="true">
               <svg className="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="black" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />

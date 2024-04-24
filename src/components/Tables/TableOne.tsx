@@ -62,7 +62,7 @@ const brandData: BRAND[] = [
     name: "Twitter",
     visitors: "Keywords shown only max 6 words",
     labels: ["green", "gray", "orange"],
-    sales: 2,
+    sales: 1,
     class: "Class name here",
   },
   {
@@ -70,7 +70,7 @@ const brandData: BRAND[] = [
     name: "Github",
     visitors: "Keywords shown only max 6 words",
     labels: ["red", "blue", "orange"],
-    sales: 1,
+    sales: 2,
     class: "Class name here",
   },
   {

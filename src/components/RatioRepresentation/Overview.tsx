@@ -1,10 +1,7 @@
 "use client";
 import ChartOne from "@/components/Charts/ChartOne";
-import ChartThree from "@/components/Charts/ChartThree";
-import ChartTwo from "@/components/Charts/ChartTwo";
 import ClubsSatisfactioncard from "@/components/ClubsSatisfactionCard/page";
 import GeneralLogisticStatsCard from "@/components/GeneralLogisticStats/GeneralLogisticStats";
-import MapOne from "@/components/Maps/MapOne";
 import RatioRepresentation from "@/components/RatioRepresentation/RatioRepresentation";
 import ResidancyStudentsSatisfactionCard from "@/components/ResidancyStudentsSatisfactionCard/ResidancyStudentsSatisfactionCard";
 import TableOne from "@/components/Tables/TableOne";

@@ -1,23 +1,108 @@
 "use client";
 import Calendar from "@/components/Calender";
-import ChartOne from "@/components/Charts/ChartOne";
-import ChartThree from "@/components/Charts/ChartThree";
-import ChartTwo from "@/components/Charts/ChartTwo";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import MapOne from "@/components/Maps/MapOne";
-import RatioRepresentation from "@/components/RatioRepresentation/RatioRepresentation";
-import TableOne from "@/components/Tables/TableOne";
 import React from "react";
 
 
-const Overview: React.FC = () => {
+const items = [
+  {
+    title: 'Modules',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 1</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique architecto dolorum, minima enim quidem
+          voluptatibus at nulla deleniti harum! Totam, mollitia quos voluptatem
+          deleniti provident obcaecati rerum.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Students',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 2</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique architecto dolorum, minima enim quidem
+          voluptatibus at nulla deleniti harum! Totam, mollitia quos voluptatem
+          deleniti provident obcaecati rerum.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Adminitration',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 4</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique architecto dolorum, minima enim quidem
+          voluptatibus at nulla deleniti harum! Totam, mollitia quos voluptatem
+          deleniti provident obcaecati rerum.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Logistics',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 4</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique architecto dolorum, minima enim quidem
+          voluptatibus at nulla deleniti harum! Totam, mollitia quos voluptatem
+          deleniti provident obcaecati rerum.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Clubs',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 4</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique architecto dolorum, minima enim quidem
+          voluptatibus at nulla deleniti harum! Totam, mollitia quos voluptatem
+          deleniti provident obcaecati rerum.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Residancy',
+    content: (
+      <div className='border-2 border-blue-400 rounded-lg p-4'>
+        <h1 className='text-3xl text-blue-600'>Title Test 4</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          aperiam asperiores doloribus velit dolore magnam ex consectetur fugit
+          earum illum qui similique 
+        </p>
+      </div>
+    ),
+  },
+];
+
+const FeedbackBoard: React.FC = () => {
   return (
     <>
       <DefaultLayout>
-        <Calendar />
+        <Calendar items={items} />
       </DefaultLayout>
     </>
   );
 };
 
-export default Overview;
+export default FeedbackBoard;

@@ -1,6 +1,15 @@
 import React from "react";
 
-const SuggestionCard = ({
+interface SuggestionCardProps {
+    avatarSrc: string;
+    name: string;
+    role: string;
+    content: string;
+    likeCount: number;
+    commentCount: number;
+}
+
+const SuggestionCard: React.FC<SuggestionCardProps> = ({
   avatarSrc,
   name,
   role,

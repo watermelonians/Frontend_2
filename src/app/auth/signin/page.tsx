@@ -1,16 +1,72 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+} from "firebase/auth";
+import { useRouter } from "next/navigation";
 
-export const metadata: Metadata = {
+/* export const metadata: Metadata = {
   title: "Next.js SignIn Page | TailAdmin - Next.js Dashboard Template",
   description: "This is Next.js Signin Page TailAdmin Dashboard Template",
-};
+}; */
 
 const SignIn: React.FC = () => {
+  const [login, setLogin] = useState(false);
+  const [username, setUser] = useState<string>("");
+  const [token, setToken] = useState("");
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        // console.log(user.displayName);
+        setUser(user?.displayName ?? "none");
+        setLogin(true);
+
+        user.getIdToken().then((token) => {
+          console.log("TOKEN:\n", token);
+          setToken(token);
+        });
+
+        router.push("/");
+      } else {
+      }
+    });
+  }, []);
+
+  const handleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    console.log("getAuth(): ", auth.currentUser ?? "NO USER FOUND");
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+
+      const user = result.user;
+      console.log(user.displayName);
+      console.log(result);
+
+      setLogin(true);
+      localStorage.setItem("auth", "true");
+      setUser(user?.displayName ?? "none");
+    } catch (error) {
+      console.log(error);
+      setLogin(false);
+    }
+  };
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Sign In" />
@@ -248,7 +304,10 @@ const SignIn: React.FC = () => {
                   />
                 </div>
 
-                <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                <button
+                  onClick={handleLogin}
+                  className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+                >
                   <span>
                     <svg
                       width="20"
@@ -287,7 +346,7 @@ const SignIn: React.FC = () => {
 
                 <div className="mt-6 text-center">
                   <p>
-                    Don’t have any account?{" "}
+                    Don't have any account?{" "}
                     <Link href="/auth/signup" className="text-primary">
                       Sign Up
                     </Link>

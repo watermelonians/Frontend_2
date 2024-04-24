@@ -1,6 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAuth } from "firebase/auth";
+import { setMaxIdleHTTPParsers } from "http";
+import { useRouter } from "next/navigation";
+import { parseCookies, setCookie } from "nookies"; // Assuming you are using 'nookies' for managing cookies
+import { cookies } from "next/headers";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -34,6 +39,58 @@ const DropdownUser = () => {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
+  //////
+  const router = useRouter();
+
+  const [displayName, setDiplayName] = useState("First Name Last Name");
+  const [email, setEmail] = useState("emailaddress@ensia.edu.dz");
+  const [photoURL, setPhotoURL] = useState(`/images/user/default-A.png`);
+  
+  const checkCookie = (): boolean => {
+    const cookies = parseCookies();
+    return !!cookies.email && !!cookies.displayName && !!cookies.photoURL;
+  };
+
+  useEffect(() => {
+    try {
+      if (checkCookie()) {
+        const cookies = parseCookies();
+        setDiplayName(cookies.displayName);
+        setEmail(cookies.email);
+        setPhotoURL(cookies.photoURL);
+      } else {
+        const user = getAuth().currentUser;
+        if (user) {
+          let userDisplayName = user.displayName ?? "First Name Last Name";
+          let userEmail = user.email ?? "emailaddress@ensia.edu.dz";
+          let userPhotoURL = user.photoURL ?? `/images/user/default-${userEmail.charAt(0).toUpperCase()}.png`;
+
+          setDiplayName(userDisplayName);
+          setEmail(userEmail);
+          setPhotoURL(userPhotoURL);
+
+          setCookie(null, "displayName", userDisplayName, {
+            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
+            path: "/", // The cookie is available for the entire domain
+          });
+          setCookie(null, "email", userEmail, {
+            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
+            path: "/",
+          });
+          setCookie(null, "photoURL", userPhotoURL, {
+            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
+            path: "/",
+          });
+        } else {
+          // TODO
+          router.push("/auth/signin");
+        }
+      }
+    } catch (e: any) {
+      console.log("There was an error with the backend.");
+    }
+  }, []);
+
   return (
     <div className="relative">
       <Link
@@ -42,11 +99,11 @@ const DropdownUser = () => {
         className="flex items-center gap-4"
         href="#"
       >
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-12 w-12 overflow-hidden rounded-full">
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={photoURL}
             style={{
               width: "auto",
               height: "auto",
@@ -57,9 +114,9 @@ const DropdownUser = () => {
 
         <span className="hidden text-left lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            First Name Last Name
+            {displayName}
           </span>
-          <span className="block text-xs">emailaddress@ensia.edu.dz</span>
+          <span className="block text-xs">{email}</span>
         </span>
       </Link>
     </div>

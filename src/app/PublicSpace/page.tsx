@@ -1,6 +1,5 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import PostCard, {PostCardProps} from "@/components/postCard/PostCard";
-
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
@@ -17,11 +16,11 @@ const postProps: PostCardProps = {
   postContent: "This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   authorName: "John Doe",
   authorRole: "Software Engineer",
-  authorAvatarSrc: "/avatar.jpg",
+  authorAvatarSrc: "",
   upvoteCount: 110,
   feedbackCount: 5,
   attachmentCount: 2,
-  tags: ["Tag1", "Tag2", "Tag3", "dnsio"]
+  tags: ["Tag1", "Tag2", "Tag3", "predifined"]
 }; 
 
 const TablesPage = () => {
@@ -29,6 +28,11 @@ const TablesPage = () => {
     <DefaultLayout>
 
       <div className="flex flex-col gap-10">
+        <PostCard {...postProps} />
+        <PostCard {...postProps} />
+        <PostCard {...postProps} />
+        <PostCard {...postProps} />
+        <PostCard {...postProps} />
         <PostCard {...postProps} />
       </div>
     </DefaultLayout>

@@ -15,11 +15,9 @@ const NeutralIcon = ({ width, height, viewBox, fillColor, path }) => (
     </svg>
   );
   
-  const UnsatisfiedIcon = ({ width, height, viewBox, fillColor, path_1, path_2, path_3 }) => (
+  const UnsatisfiedIcon = ({ width, height, viewBox, fillColor, path}) => (
     <svg width={width} height={height} viewBox={viewBox} fill={fillColor} xmlns="http://www.w3.org/2000/svg">
-      <path d={path_1} />
-      <path d={path_2} />
-      <path d={path_3} />
+      <path d={path} />
     </svg>
   );
 
@@ -43,9 +41,9 @@ const GeneralLogisticStatsCard: React.FC<GeneralLogisticStatsCardProps> = ({
   };
 
   const getIcon = (scorePoints: number) => {
-    if (scorePoints > 0.33 && scorePoints <= 0.66) return <UnsatisfiedIcon width={40} height={40} viewBox="-8 -8 40 40"  fillColor="white" path_1="M12 6.49L19.53 19.5H4.47L12 6.49ZM12 2.5L1 21.5H23L12 2.5Z" path_2="M13 16.5H11V18.5H13V16.5Z" path_3="M13 10.5H11V15.5H13V10.5Z" />;
-    else if (scorePoints <= 0.33 && scorePoints > 0) return <NeutralIcon width={40} height={40} viewBox="-8 -8 40 40" fillColor="white" path="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" />;
-    else if (scorePoints > 0.66 && scorePoints <= 1) return <SatisfiedIcon width={40} height={40} viewBox="-8 -8 40 40" fillColor="white" path="M16.59 7.58L10 14.17L6.41 10.59L5 12L10 17L18 9L16.59 7.58ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" />;
+    if (scorePoints > 0.33 && scorePoints <= 0.66) return <UnsatisfiedIcon width={40} height={40} viewBox="-10 -10 40 40"  fillColor="white" path="M0 19.5H22L11 0.5L0 19.5ZM12 16.5H10V14.5H12V16.5ZM12 12.5H10V8.5H12V12.5Z" />;
+    else if (scorePoints <= 0.33 && scorePoints > 0) return <NeutralIcon width={40} height={40} viewBox="-10 -10 40 40" fillColor="white" path="M10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM15 13.59L13.59 15L10 11.41L6.41 15L5 13.59L8.59 10L5 6.41L6.41 5L10 8.59L13.59 5L15 6.41L11.41 10L15 13.59Z" />;
+    else if (scorePoints > 0.66 && scorePoints <= 1) return <SatisfiedIcon width={40} height={40} viewBox="-10 -10 40 40" fillColor="white" path="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM8 15L3 10L4.41 8.59L8 12.17L15.59 4.58L17 6L8 15Z" />;
     else return null;
   };
 

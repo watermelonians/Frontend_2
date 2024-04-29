@@ -9,6 +9,7 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { useRouter } from "next/navigation";
 import { useUserAuth } from "@/context/AuthContext";
 import { getAuth } from "firebase/auth";
+import { destroyCookie } from "nookies";
 
 /* export const metadata: Metadata = {
   title: "Next.js SignIn Page | TailAdmin - Next.js Dashboard Template",
@@ -38,13 +39,17 @@ const SignIn: React.FC = () => {
       console.log("signed out");
       const auth = getAuth();
       console.log(auth.currentUser);
+
+      destroyCookie(null, "email", { path: "/" });
+      destroyCookie(null, "photoURL", { path: "/" });
+      destroyCookie(null, "displayName", { path: "/" });
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <DefaultLayout>
+    <>
       <Breadcrumb pageName="Sign In" />
 
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -210,12 +215,15 @@ const SignIn: React.FC = () => {
                 Show Current user
               </button>
               {/** end form */}
-              <div className="mr-4 rounded-xl bg-orange-500 px-4 py-2 text-white"> {user}</div>
+              <div className="mr-4 rounded-xl bg-orange-500 px-4 py-2 text-white">
+                {" "}
+                {user}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </>
   );
 };
 

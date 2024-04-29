@@ -1,6 +1,38 @@
+"use client";
+import { useUserAuth } from "@/context/AuthContext";
+import { getAuth } from "firebase/auth";
 import type { NextPage } from "next";
+import { useRouter } from "next/navigation";
+import { destroyCookie } from "nookies";
 
 const DashboardPublicSpaceIn1: NextPage = () => {
+  const router = useRouter();
+
+  const { user, googleSignIn, logOut } = useUserAuth();
+
+  const handleLogin = async () => {
+    try {
+      await googleSignIn();
+      router.push("/Overview");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      console.log("signed out");
+      const auth = getAuth();
+      console.log(auth.currentUser);
+
+      destroyCookie(null, "email", { path: "/" });
+      destroyCookie(null, "photoURL", { path: "/" });
+      destroyCookie(null, "displayName", { path: "/" });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="text-17xl text-text-primary font-components-buttons-lg relative h-[1070px] w-full overflow-hidden text-center [background:radial-gradient(50%_50%_at_50%_50%,_rgba(11,_107,_203,_0.05),_rgba(11,_107,_203,_0.01)),_#050c28]">
       <img
@@ -55,14 +87,17 @@ const DashboardPublicSpaceIn1: NextPage = () => {
             <div className="relative leading-[155%]">OR</div>
             <div className="border-divider relative box-border h-px w-[142px] border-t-[1px] border-solid" />
           </div>
-          <div className="rounded-radius-sm bg-primary-solid-bg py-boundvariablesdata px-boundvariablesdata4 text-warning-solid-color flex flex-row items-center justify-start gap-[24px] text-base">
+          <button
+            onClick={handleLogin}
+            className="py-boundvariablesdata px-boundvariablesdata4 text-warning-solid-color flex flex-row items-center justify-start gap-[24px] rounded-lg bg-red px-4 py-2 text-base text-white duration-150 hover:scale-110"
+          >
             <img
               className="relative h-[18.5px] w-[18px] shrink-0 overflow-hidden"
               alt=""
               src="/google.svg"
             />
-            <div className="relative leading-[150%]">Continue with google</div>
-          </div>
+            <div className="relative leading-[150%] ">Continue with google</div>
+          </button>
         </div>
       </div>
       <div className="bg-primary-400 absolute left-[122px] top-[752px] h-[15.5px] w-[15.5px] rounded-[50%] [filter:blur(5px)]" />

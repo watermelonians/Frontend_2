@@ -45,7 +45,7 @@ const DropdownUser = () => {
   const [displayName, setDiplayName] = useState("First Name Last Name");
   const [email, setEmail] = useState("emailaddress@ensia.edu.dz");
   const [photoURL, setPhotoURL] = useState(`/images/user/default-A.png`);
-  
+
   const checkCookie = (): boolean => {
     const cookies = parseCookies();
     return !!cookies.email && !!cookies.displayName && !!cookies.photoURL;
@@ -63,7 +63,9 @@ const DropdownUser = () => {
         if (user) {
           let userDisplayName = user.displayName ?? "First Name Last Name";
           let userEmail = user.email ?? "emailaddress@ensia.edu.dz";
-          let userPhotoURL = user.photoURL ?? `/images/user/default-${userEmail.charAt(0).toUpperCase()}.png`;
+          let userPhotoURL =
+            user.photoURL ??
+            `/images/user/default-${userEmail.charAt(0).toUpperCase()}.png`;
 
           setDiplayName(userDisplayName);
           setEmail(userEmail);
@@ -83,7 +85,7 @@ const DropdownUser = () => {
           });
         } else {
           // TODO
-          router.push("/auth/signin");
+          router.push("/");
         }
       }
     } catch (e: any) {

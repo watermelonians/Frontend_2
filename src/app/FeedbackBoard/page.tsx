@@ -2,14 +2,11 @@
 import Feedback from "@/components/Feedback";
 import Calendar from "@/components/Feedback";
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
-import ChartOne from "@/components/Charts/ChartOne";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import React from "react";
-
 
 const items = [
   {
-    title: 'Modules',
+    title: "Modules",
     content: (
       <CategoryCard 
       title="Operating System" 
@@ -147,7 +144,7 @@ const items = [
     ),
   },
   {
-    title: 'Students',
+    title: "Students",
     content: (
       <CategoryCard title="Group 3" items={[
         {
@@ -263,7 +260,7 @@ const items = [
     ),
   },
   {
-    title: 'Adminitration',
+    title: "Adminitration",
     content: (
       <CategoryCard title="Admin" items={[
         {
@@ -343,7 +340,7 @@ const items = [
     ),
   },
   {
-    title: 'Logistics',
+    title: "Logistics",
     content: (
       <CategoryCard title="Amphiteater" items={[
         {
@@ -567,7 +564,7 @@ const items = [
     ),
   },
   {
-    title: 'Clubs',
+    title: "Clubs",
     content: (
       <><><CategoryCard title="GDSC ENSIA" items={[
         {
@@ -1303,7 +1300,7 @@ const items = [
     ),
   },
   {
-    title: 'Residancy',
+    title: "Residancy",
     content: (
       <CategoryCard title="Mahelma 3" items={[
         {
@@ -1495,9 +1492,7 @@ const items = [
 const FeedbackBoard: React.FC = () => {
   return (
     <>
-      <DefaultLayout>
         <Feedback items={items} />
-      </DefaultLayout>
     </>
   );
 };

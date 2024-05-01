@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import SidebarLinkGroup from "./SidebarLinkGroup";
+import { useUserAuth } from "@/context/AuthContext";
+import { getAuth } from "firebase/auth";
+import { destroyCookie } from "nookies";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -57,6 +60,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     }
   }, [sidebarExpanded]);
 
+  const router = useRouter();
+
+  //////
+  const { user, googleSignIn, logOut } = useUserAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      console.log("signed out");
+      const auth = getAuth();
+      console.log(auth.currentUser);
+
+      destroyCookie(null, "email", { path: "/" });
+      destroyCookie(null, "photoURL", { path: "/" });
+      destroyCookie(null, "displayName", { path: "/" });
+
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <aside
       ref={sidebar}

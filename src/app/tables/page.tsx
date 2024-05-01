@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import PostCard, { PostCardProps } from "@/components/postCard/PostCard";
 
 export const metadata: Metadata = {
@@ -28,11 +27,11 @@ const postProps: PostCardProps = {
 
 const TablesPage = () => {
   return (
-    <DefaultLayout>
+    <>
      
           <PostCard {...postProps} />
 
-    </DefaultLayout>
+    </>
   );
 };
 

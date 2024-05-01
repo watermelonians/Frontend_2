@@ -10,8 +10,8 @@ const Tag: FunctionComponent<TagProps> = ({ name }) => {
     Tag1: "#492b08", 
     Tag2: "#7d1212", 
     Tag3: "#0a470a", 
-    Tag4: "#32383e"   
-
+    predifined: "#32383e"   
+   
   };
   const labelStyle: Record<string, CSSProperties["color"]> = {
     Tag1: "#f3c896", 
@@ -25,10 +25,11 @@ const Tag: FunctionComponent<TagProps> = ({ name }) => {
 const labelColor = labelStyle[name] || ""; // Default color for unknown tags
 
   return (
-    <div className="rounded-lg bg-warning-soft-color overflow-hidden flex flex-row items-center justify-center py-boundvariablesdata2 px-boundvariablesdata3" style={{ backgroundColor: tagColor }}>
+    <div className="rounded-lg bg-warning-soft-color overflow-hidden flex flex-row items-center justify-center py-boundvariablesdata2 px-boundvariablesdata3n p-1" style={{ backgroundColor: tagColor }}>
       <div className="relative leading-[166%] font-semibold" style={{ color: labelColor }}>{name}</div>
     </div>
   );
 };
 
 export default Tag;
+

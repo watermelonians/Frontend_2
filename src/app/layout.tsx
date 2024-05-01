@@ -8,6 +8,7 @@ import Loader from "@/components/common/Loader";
 
 // import "../../config/firebase.config";
 import { AuthContextProvider } from "../context/AuthContext";
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export default function RootLayout({
   children,
@@ -32,9 +33,11 @@ export default function RootLayout({
     <AuthContextProvider>
       <html lang="en">
         <body suppressHydrationWarning={true}>
-          <div className="dark:bg-boxdark-2 dark:text-bodydark">
-            {loading ? <Loader /> : children}
-          </div>
+          <DefaultLayout>
+            <div className="dark:bg-boxdark-2 dark:text-bodydark">
+              {loading ? <Loader /> : children}
+            </div>
+          </DefaultLayout>
         </body>
       </html>
     </AuthContextProvider>

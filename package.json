@@ -12,6 +12,7 @@
     "@ariakit/react": "^0.4.6",
     "@nextui-org/react": "^2.2.10",
     "@nextui-org/tabs": "^2.0.29",
+    "@tabler/icons-react": "^3.2.0",
     "apexcharts": "^3.45.2",
     "clsx": "^2.1.0",
     "firebase": "^10.11.1",

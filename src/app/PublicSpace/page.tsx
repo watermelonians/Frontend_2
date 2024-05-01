@@ -4,9 +4,9 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
-  title: "Next.js Tables | TailAdmin - Next.js Dashboard Template",
+  title: "Public Space",
   description:
-    "This is Next.js Tables page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+    "See all the ANNOUNCEMENTS in the public space",
 };
 
 const postProps: PostCardProps = {
@@ -25,7 +25,7 @@ const postProps: PostCardProps = {
 
 const TablesPage = () => {
   return (
-    <DefaultLayout>
+    <>
 
       <div className="flex flex-col gap-10">
         <PostCard {...postProps} />
@@ -35,7 +35,7 @@ const TablesPage = () => {
         <PostCard {...postProps} />
         <PostCard {...postProps} />
       </div>
-    </DefaultLayout>
+    </>
   );
 };
 

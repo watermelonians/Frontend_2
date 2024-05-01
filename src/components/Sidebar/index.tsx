@@ -80,7 +80,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       href="/Overview"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                         pathname.includes("/Overview") && 
-                        "bg-sky-400 dark:bg-meta-4"
+                        "bg-sky-400 dark:bg-[#12467B]"
                       }`}
                     >
                       <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -108,7 +108,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       href="/DiscussionSpace"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                         pathname.includes("DiscussionSpace") &&
-                        "bg-sky-400 dark:bg-meta-4"
+                        "bg-sky-400 dark:bg-[#12467B]"
                       }`}
                     >
                       <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -135,7 +135,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       href="/FeedbackBoard"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                         pathname.includes("FeedbackBoard") &&
-                        "bg-sky-400 dark:bg-meta-4"
+                        "bg-sky-400 dark:bg-[#12467B]"
                       }`}
                     >
                       <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -169,7 +169,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       href="/PublicSpace"
                       className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                         pathname.includes("PublicSpace") &&
-                        "bg-sky-400 dark:bg-meta-4"
+                        "bg-sky-400 dark:bg-[#12467B]"
                       }`}
                     >
                       <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -202,7 +202,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             href="/chart"
                             className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                               pathname.includes("chart") &&
-                              "bg-sky-400 dark:bg-meta-4"
+                              "bg-sky-400 dark:bg-[#12467B]"
                             }`}
                             onClick={(e) => {
                               e.preventDefault();
@@ -299,7 +299,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   href="/profile"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                     pathname.includes("profile") &&
-                    "bg-sky-400 dark:bg-meta-4"
+                    "bg-sky-400 dark:bg-[#12467B]"
                   }`}
                 >
                   <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -327,7 +327,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   href="/forms/form-elements"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                     pathname.includes("/forms/form-elements") &&
-                    "bg-sky-400 dark:bg-meta-4"
+                    "bg-sky-400 dark:bg-[#12467B]"
                   }`}
                 >
                   <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -355,7 +355,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   href="/settings"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                     pathname.includes("settings") &&
-                    "bg-sky-400 dark:bg-meta-4"
+                    "bg-sky-400 dark:bg-[#12467B]"
                   }`}
                 >
                   <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">
@@ -383,7 +383,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   href="/forms/form-layout"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                     pathname.includes("/forms/form-layout") &&
-                    "bg-sky-400 dark:bg-meta-4"
+                    "bg-sky-400 dark:bg-[#12467B]"
                   }`}
                 >
                   <div className="flex items-center gap-4 p-1.5 w-6 h-6 bg-blue-500 rounded-md">

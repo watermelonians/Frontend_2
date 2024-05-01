@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 export const AnimatedTooltip = ({
   items,
@@ -20,6 +21,7 @@ export const AnimatedTooltip = ({
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
@@ -37,44 +39,51 @@ export const AnimatedTooltip = ({
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
 
+  const renderTooltip = (item) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.6 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+          type: "spring",
+          stiffness: 260,
+          damping: 10,
+        },
+      }}
+      exit={{ opacity: 0, y: 20, scale: 0.6 }}
+      style={{
+        translateX: translateX,
+        rotate: rotate,
+        whiteSpace: "nowrap",
+      }}
+      className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
+    >
+      <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
+      <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
+      <div className="font-bold text-white relative z-30 text-base">
+        {item.name}
+      </div>
+      <div className="text-white text-xs">{item.designation}</div>
+    </motion.div>
+  );
+
+  const remainingItemsCount = items.length - 5;
+
   return (
     <>
-      {items.map((item, idx) => (
+      {items.slice(0, 5).map((item, idx) => (
         <div
-          className="-mr-3  relative group"
+          className="-mr-3 relative group"
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          onMouseLeave={() => {
+            setHoveredIndex(null);
+            setShowTooltip(false);
+          }}
         >
-          {hoveredIndex === item.id && (
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.6 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 10,
-                },
-              }}
-              exit={{ opacity: 0, y: 20, scale: 0.6 }}
-              style={{
-                translateX: translateX,
-                rotate: rotate,
-                whiteSpace: "nowrap",
-              }}
-              className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
-            >
-              <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
-              <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-              <div className="font-bold text-white relative z-30 text-base">
-                {item.name}
-              </div>
-              <div className="text-white text-xs">{item.designation}</div>
-            </motion.div>
-          )}
+          {hoveredIndex === item.id && renderTooltip(item)}
           <Image
             onMouseMove={handleMouseMove}
             height={5}
@@ -85,6 +94,16 @@ export const AnimatedTooltip = ({
           />
         </div>
       ))}
+      {items.length > 5 && (
+        <div
+          className="-mr-3 relative group"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+        >
+          <AiFillPlusCircle className="object-cover !m-0 !p-0 object-bottom rounded-full h-7 w-7 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500" />
+          {showTooltip && renderTooltip({ name: `+${remainingItemsCount} remaining people`, designation: "" })}
+        </div>
+      )}
     </>
   );
 };

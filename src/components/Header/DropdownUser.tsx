@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getAuth } from "firebase/auth";
+import { getAuth, getIdToken } from "firebase/auth";
 import { setMaxIdleHTTPParsers } from "http";
 import { useRouter } from "next/navigation";
 import { parseCookies, setCookie } from "nookies"; // Assuming you are using 'nookies' for managing cookies
 import { cookies } from "next/headers";
+import { set } from "firebase/database";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -91,7 +92,7 @@ const DropdownUser = () => {
     } catch (e: any) {
       console.log("There was an error with the backend.");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="relative">

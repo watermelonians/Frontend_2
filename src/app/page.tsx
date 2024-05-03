@@ -29,6 +29,7 @@ const DashboardPublicSpaceIn1: NextPage = () => {
       destroyCookie(null, "email", { path: "/" });
       destroyCookie(null, "photoURL", { path: "/" });
       destroyCookie(null, "displayName", { path: "/" });
+      destroyCookie(null, "token", { path: "/" });
     } catch (error) {
       console.log(error);
     }

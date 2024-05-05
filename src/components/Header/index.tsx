@@ -3,6 +3,8 @@ import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 
+export const dynamic = "force-dynamic";
+
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;

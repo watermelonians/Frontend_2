@@ -4,21 +4,30 @@ import Image from "next/image";
 import cards_05 from "public/images/cards/cards_05.png";
 import { cn } from "utils/cn";
 import { Metadata } from "next";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Discussion Space",
   description: "Discussion of Problems and Solutions",
 };
 
+export type Problem = {
+  id: string | number;
+  title: string;
+};
+
 export default async function DiscussionSpace() {
-  async function getUser() {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/users/1",
-    );
+  async function getProblems() {
+    const response = await fetch(process.env.FRONTEND_HOST + "/api/getMyProblems", {
+      cache: "no-cache",
+      headers: {
+        Cookie: cookies().toString()
+      }
+    });
     const data = await response.json();
-    return data;
+    return data.body;
   }
-  //const { id, name } = (await getUser()) as User;
+  let problems: Problem[] = await getProblems();
 
   return (
     <div
@@ -26,17 +35,18 @@ export default async function DiscussionSpace() {
         "mx-auto grid max-w-4xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
       )}
     >
-      {items.map((item, i) => (
+      {problems.map((item: any, i: number) =>  (
         <>
           <BentoGridItem
             key={i}
-            id= {i}
+            id={i}
             title={item.title}
-            Tags={item.Tags}
-            header={item.header}
+            Tags={["Tag1", "Tag2", "Tag3"]}
+            header= <Skeleton /> 
             upvote_={item.upvoteCount}
             feedbackCount={item.feedbackCount}
             attachmentCount={item.attachmentCount}
+            className="bg-red h-full dark:bg-meta-3"
           />
         </>
       ))}

@@ -98,7 +98,7 @@ export const AnimatedTooltip = ({
         <div
           className="-mr-3 relative group"
           onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
+          onMouseLeave={() => {setHoveredIndex(null);setShowTooltip(false);}}
         >
           <AiFillPlusCircle className="object-cover !m-0 !p-0 object-bottom rounded-full h-7 w-7 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500" />
           {showTooltip && renderTooltip({ name: `+${remainingItemsCount} remaining people`, designation: "" })}

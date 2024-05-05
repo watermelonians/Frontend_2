@@ -1,6 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    
-};
-
-export default nextConfig;
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "lh3.googleusercontent.com",
+          port: "",
+          pathname: "/**",
+        },
+        {
+          protocol: "https",
+          hostname: "file-example.com",
+          port: "",
+          pathname: "/**",
+        }
+      ],
+    },
+  };
+  
+  export default nextConfig;
+  

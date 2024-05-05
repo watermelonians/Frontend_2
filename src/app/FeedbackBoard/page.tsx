@@ -1492,7 +1492,7 @@ const items = [
 const FeedbackBoard: React.FC = () => {
   return (
     <>
-        <Feedback items={items} />
+      <Feedback items={items} />
     </>
   );
 };

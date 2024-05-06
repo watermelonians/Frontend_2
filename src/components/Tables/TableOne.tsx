@@ -46,6 +46,13 @@ const people = [
     image:
       "/images/brand/brand-01.svg",
   },
+  {
+    id: 1,
+    name: "Google",
+    designation: "Software Engineer",
+    image:
+      "/images/brand/brand-01.svg",
+  },
 ];
 
 const brandData: BRAND[] = [

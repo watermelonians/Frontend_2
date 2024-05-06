@@ -37,21 +37,37 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logOut = async () => {
-     signOut(auth);
+    signOut(auth);
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser ? currentUser.displayName : "NO USER LOGON");
-      getIdToken(currentUser as any).then((token) => {
-        setCookie(null, "token", token, {
-          path: "/",
+      
+      if (currentUser) {
+        getIdToken(currentUser as any).then((token) => {
+          setCookie(null, "token", token, {
+            path: "/",
+            maxAge: 30 * 24 * 60 * 60,
+          });
+          setCookie(null, "email", currentUser?.email as string, {
+            path: "/",
+            maxAge: 30 * 24 * 60 * 60,
+          });
+          setCookie(null, "displayName", currentUser?.displayName as string, {
+            path: "/",
+            maxAge: 30 * 24 * 60 * 60,
+          });
+          setCookie(null, "photoURL", currentUser?.photoURL as string, {
+            path: "/",
+            maxAge: 30 * 24 * 60 * 60,
+          });
         });
-      });
+      }
     });
     const test = onIdTokenChanged(auth, (user) => {
       if (user) {
-        user.getIdToken().then((token) => {
+        getIdToken(user).then((token) => {
           destroyCookie(null, "token");
           setCookie(null, "token", token, {
             path: "/",
@@ -61,7 +77,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     });
     return () => {
       unsubscribe();
-      test()
+      test();
     };
   }, []); // Removed user from dependencies as it's not necessary here
 

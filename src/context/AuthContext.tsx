@@ -10,8 +10,11 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  getIdToken,
+  onIdTokenChanged,
 } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
+import { destroyCookie, setCookie } from "nookies";
 
 interface AuthContextType {
   user: string | null;
@@ -28,20 +31,38 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<string | null>(null);
 
-  const googleSignIn = () => {
+  const googleSignIn = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider);
   };
 
-  const logOut = () => {
-    signOut(auth);
+  const logOut = async () => {
+     signOut(auth);
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser ? currentUser.displayName : "NO USER LOGON");
+      getIdToken(currentUser as any).then((token) => {
+        setCookie(null, "token", token, {
+          path: "/",
+        });
+      });
     });
-    return () => unsubscribe();
+    const test = onIdTokenChanged(auth, (user) => {
+      if (user) {
+        user.getIdToken().then((token) => {
+          destroyCookie(null, "token");
+          setCookie(null, "token", token, {
+            path: "/",
+          });
+        });
+      }
+    });
+    return () => {
+      unsubscribe();
+      test()
+    };
   }, []); // Removed user from dependencies as it's not necessary here
 
   return (

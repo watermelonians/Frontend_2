@@ -18,12 +18,15 @@ export type Problem = {
 
 export default async function DiscussionSpace() {
   async function getProblems() {
-    const response = await fetch(process.env.FRONTEND_HOST + "/api/getMyProblems", {
-      cache: "no-cache",
-      headers: {
-        Cookie: cookies().toString()
-      }
-    });
+    const response = await fetch(
+      process.env.FRONTEND_HOST + "/api/getMyProblems",
+      {
+        cache: "no-cache",
+        headers: {
+          Cookie: cookies().toString(),
+        },
+      },
+    );
     const data = await response.json();
     return data.body;
   }
@@ -32,21 +35,21 @@ export default async function DiscussionSpace() {
   return (
     <div
       className={cn(
-        "mx-auto grid max-w-4xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
+        "mx-auto grid h-screen max-w-4xl grid-cols-4 gap-4 md:auto-rows-[18rem] md:grid-cols-3 sm:grid-cols-1 ",
       )}
     >
-      {problems.map((item: any, i: number) =>  (
+      {problems.map((item: any, i: number) => (
         <>
           <BentoGridItem
             key={i}
             id={i}
             title={item.title}
             Tags={["Tag1", "Tag2", "Tag3"]}
-            header= <Skeleton /> 
+            header=<Skeleton />
             upvote_={item.upvoteCount}
             feedbackCount={item.feedbackCount}
             attachmentCount={item.attachmentCount}
-            className="bg-red h-full dark:bg-meta-3"
+            className="h-full"
           />
         </>
       ))}

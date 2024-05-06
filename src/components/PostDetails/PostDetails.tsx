@@ -4,8 +4,45 @@ import { Key, useState } from "react";
 import { FaRegThumbsUp, FaThumbsUp, FaEye } from "react-icons/fa";
 import { GrAttachment } from "react-icons/gr";
 import { MdFeedback } from "react-icons/md";
+import Card from "../CategoryCard/Card"
 import Tag from "../Tags/Tag";
 import FeedbackCard from "../Feedback/Feedback";
+
+const item = {
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    category: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: true,
+    likes: 214,
+    comments: 5,
+    myVote: true,
+    priority: 2,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+        {
+            title: "Displayed text here", 
+            date: "2019-09-14",
+            time: "12:12",
+            username: "Username",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+            url: "https://i.pravatar.cc/100",
+          },
+          {
+            title: "Displayed text here", 
+            date: "2019-09-14",
+            time: "12:12",
+            username: "Username",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+            url: "https://i.pravatar.cc/100",
+          },
+    ],
+    solved: false,
+  }
 
 export interface PostDetailsProps {
   isUpvoted?: boolean;
@@ -91,7 +128,7 @@ const PostDetails: React.FC<PostDetailsProps> = ({
     </div>
   </div>
   <p className="text-sm text-gray-600 mt-2 pl-2">{postContent}</p>
-
+  <Card {...item} />
   <div className="bg-slate-700 h-0.5 m-4 "></div>  
 </div>
 

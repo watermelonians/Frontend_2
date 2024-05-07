@@ -2,7 +2,7 @@
 import React from 'react';
 import Card from './Card';
 
-const CategoryCard = ({ title, items }) => {
+const CategoryCard = ({title, items }) => {
   
   return (
     <div className="relative p-3 w-80 flex-grow bg-gray-100 rounded-xl bg-[#E3EFFB] dark:bg-[#0A274440]">

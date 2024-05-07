@@ -1,5 +1,4 @@
 import Exit from "./Exit";
-import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 
@@ -19,8 +18,6 @@ const Header = (props: {
         <ul className="flex items-center gap-2 2xsm:gap-4">
           {/* Switcher Menu Area */}
           <DarkModeSwitcher />
-          {/* Notification Menu Area */}
-          <DropdownNotification />
           {/* Exit Menu Area */}
           <Exit />
         </ul>

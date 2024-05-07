@@ -10,7 +10,7 @@ const nextConfig = {
         },
         {
           protocol: "https",
-          hostname: "file-example.com",
+          hostname: "commons.wikimedia.org",
           port: "",
           pathname: "/**",
         }

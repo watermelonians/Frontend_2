@@ -51,14 +51,6 @@ const items = [
               time: "12:12",
               username: "Username",
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://commons.wikimedia.org/wiki/File:Dummy.png",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
               url: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3",
             },
 

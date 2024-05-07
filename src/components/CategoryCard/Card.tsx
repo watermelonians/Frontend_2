@@ -1,10 +1,10 @@
 // Card.js
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/react';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, button, useDisclosure } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineLike, AiOutlineComment, AiOutlinePaperClip, AiOutlineEye, AiOutlineAlignLeft, AiFillLike, AiFillFileWord, AiFillFilePdf, AiFillAudio, AiFillFileText, AiFillVideoCamera, AiFillChrome, AiFillFile, AiFillGoogleCircle, AiOutlineLink, AiFillPicture, AiFillMessage, AiFillFileExcel, AiFillFilePpt, AiFillFileZip, AiFillHtml5 } from 'react-icons/ai';
-import ogs from 'open-graph-scraper';
 import FollowSwitch from './followSwitch';
 import Image from 'next/image';
+import { FaThumbsUp, FaRegThumbsUp } from 'react-icons/fa';
 
 const getTagColor = (tagName) => {
     switch (tagName) {
@@ -36,7 +36,7 @@ const getTagColor = (tagName) => {
     }
   };
 
-const Card = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, comments, myVote, priority, description, attachments, solved }) => {
+const Card = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, like, comments, myVote, priority, description, attachments, solved }) => {
 
   const [backdrop, setBackdrop] = useState('blur');
   const [isChecked, setIsChecked] = useState(myVote);
@@ -46,6 +46,20 @@ const Card = ({ title, avatarSrc, username, date, time, category, cluster, archi
     setBackdrop(backdrop)
     onOpen();
   }
+
+  const [upvote, handleUpVote] = useState<number>(likes || 0);
+  const [isUp, setIsUpvoted] = useState<boolean>(like || false);
+
+  const handleUpVoteClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (isUp) {
+      handleUpVote((prevCount) => prevCount - 1);
+      setIsUpvoted(false);
+    } else {
+      handleUpVote((prevCount) => prevCount + 1);
+      setIsUpvoted(true);
+    }
+  };
 
   const [isFollowing, setIsFollowing] = useState(false); // Example initial state
 
@@ -130,16 +144,14 @@ const Card = ({ title, avatarSrc, username, date, time, category, cluster, archi
             </div>
           </div>
           <div className="flex justify-start mt-2">
-            {likes !== 0 && (
-              <>
-                {follow ? (
-                  <AiFillLike className="mr-1 text-[#0B6BCB] cursor-pointer hover:text-[#0B6BCB] transform hover:scale-125 transition duration-300" title='You should click on the card for more information'/>
-                ) : (
-                  <AiOutlineLike className="mr-1 dark:text-[#9FA6AD] text-[#636B74] cursor-pointer hover:text-[#636B74] dark:hover:text-[#9FA6AD] transform hover:scale-125 transition duration-300" title='You should click on the card for more information'/>
-                )}            
-                <p className='mr-2 text-xs font-normal'>{likes}</p>
-              </>
-            )}            
+            <button onClick={handleUpVoteClick} className=' cursor-pointer'>
+              {isUp ? (
+                <AiFillLike className="mr-1 text-[#0B6BCB] cursor-pointer hover:text-[#0B6BCB] transform hover:scale-125 transition duration-300" title='You should click on the card for more information'/>
+              ) : (
+                <AiOutlineLike className="mr-1 dark:text-[#9FA6AD] text-[#636B74] cursor-pointer hover:text-[#636B74] dark:hover:text-[#9FA6AD] transform hover:scale-125 transition duration-300" title='You should click on the card for more information'/>
+              )}
+            </button>       
+            <p className='mr-2 text-xs font-normal'>{upvote}</p>               
             <AiOutlineAlignLeft className="mr-2 dark:text-[#9FA6AD] text-[#636B74] cursor-pointer hover:text-[#636B74] dark:hover:text-[#9FA6AD] transform hover:scale-125 transition duration-300" title='You should click on the card for more information' />
             {comments !== 0 && (
               <>
@@ -222,7 +234,7 @@ const Card = ({ title, avatarSrc, username, date, time, category, cluster, archi
                           <div className='dark:text-[#636B74] text-[#636B74]'>Importance</div>
                           <div className='flex flex-row mt-2 '>
                             <AiFillLike className="text-[#C41C1C] items-center justify-center h-4 w-4"/>
-                            <div className='ml-2 dark:text-[#F09898] text-[#C41C1C] text-xs text-center items-center justify-center'>{likes}</div>
+                            <div className='ml-2 dark:text-[#F09898] text-[#C41C1C] text-xs text-center items-center justify-center'>{upvote}</div>
                           </div>
                           <div className='flex flex-row text-xs font-normal'>
                             <label

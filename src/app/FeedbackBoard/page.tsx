@@ -7,6 +7,7 @@ import React from "react";
 const items = [
   {
     title: "Modules",
+    display: true,
     content: (
       <CategoryCard 
       title="Operating System" 
@@ -22,6 +23,7 @@ const items = [
           archive: false,
           follow: true,
           likes: 214,
+          like: true,
           comments: 5,
           myVote: true,
           priority: 2,
@@ -41,7 +43,7 @@ const items = [
               time: "12:12",
               username: "Username",
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/storage/fe121d443b662e6a8a224ff/2017/02/index.html",
+              url: "https://www.cs.unc.edu/~jbs/resources/www/page_prep/intro-html/dummy.html",
             },
             {
               title: "Displayed text here", 
@@ -49,55 +51,7 @@ const items = [
               time: "12:12",
               username: "Username",
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/storage/fe121d443b662e6a8a224ff/2017/10/file_example_PNG_500kB.png",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/storage/fe121d443b662e6a8a224ff/2017/11/file_example_MP3_700KB.mp3",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/wp-content/storage/2018/04/file_example_AVI_480_750kB.avi",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/wp-content/storage/2017/02/file-sample_100kB.doc",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/wp-content/storage/2017/08/file_example_PPT_250kB.ppt",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/wp-content/storage/2017/02/file_example_XLS_10.xls",
-            },
-            {
-              title: "Displayed text here", 
-              date: "2019-09-14",
-              time: "12:12",
-              username: "Username",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-              url: "https://file-examples.com/wp-content/storage/2017/02/zip_2MB.zip",
+              url: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3",
             },
 
           ],
@@ -114,6 +68,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 0,
           myVote: true,
           priority: 1,
@@ -145,6 +100,7 @@ const items = [
   },
   {
     title: "Students",
+    display: true,
     content: (
       <CategoryCard title="Group 3" items={[
         {
@@ -158,6 +114,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 0,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -194,6 +151,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -230,6 +188,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -261,6 +220,7 @@ const items = [
   },
   {
     title: "Adminitration",
+    display: true,
     content: (
       <CategoryCard title="Admin" items={[
         {
@@ -274,6 +234,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -310,6 +271,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -341,6 +303,7 @@ const items = [
   },
   {
     title: "Logistics",
+    display: true,
     content: (
       <CategoryCard title="Amphiteater" items={[
         {
@@ -354,6 +317,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -390,6 +354,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -426,6 +391,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -462,6 +428,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -498,6 +465,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -534,6 +502,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -565,6 +534,7 @@ const items = [
   },
   {
     title: "Clubs",
+    display: true,
     content: (
       <><><CategoryCard title="GDSC ENSIA" items={[
         {
@@ -578,6 +548,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -614,6 +585,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -650,6 +622,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -686,6 +659,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -712,7 +686,10 @@ const items = [
           solved: true,
         },
         // Add more items as needed
-      ]}></CategoryCard><CategoryCard title="GDSC ENSIA" items={[
+      ]}>
+
+      </CategoryCard>
+      <CategoryCard title="GDSC ENSIA" items={[
         {
           title: "Add discount code to checkout page",
           avatarSrc: "https://i.pravatar.cc/100",
@@ -724,6 +701,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -760,6 +738,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -796,6 +775,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -832,6 +812,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -870,6 +851,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -906,6 +888,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -942,6 +925,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -978,6 +962,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1016,6 +1001,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1052,6 +1038,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1088,6 +1075,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1124,6 +1112,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1162,6 +1151,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1198,6 +1188,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1234,6 +1225,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1270,6 +1262,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1301,6 +1294,7 @@ const items = [
   },
   {
     title: "Residancy",
+    display: false,
     content: (
       <CategoryCard title="Mahelma 3" items={[
         {
@@ -1314,6 +1308,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1350,6 +1345,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1386,6 +1382,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1422,6 +1419,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,
@@ -1458,6 +1456,7 @@ const items = [
           archive: false,
           follow: false,
           likes: 214,
+          like: false,
           comments: 5,
           myVote: true,
           priority: 1,

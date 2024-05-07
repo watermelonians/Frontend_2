@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import ProblemCategoryCard from '../ProblemCategoryCard/ProblemCategoryCard';
-import CategoryCard from '../CategoryCard/CategoryCard';
+
 
 
 const Feedback = ({ items }) => {
@@ -18,9 +17,10 @@ const Feedback = ({ items }) => {
 
 const tabs = items.map((item, index) => (
   <button
+    disabled={!item.display}
     key={index}
     onClick={() => handleTabClick(index)}
-    className={`outline-none w-50 p-2 hover:bg-[#185EA5] rounded-xl text-cneter dark:text-[#F0F4F8] text-[#171A1C] focus:bg-[#185EA5] focus:text-white ${
+    className={`${!item.display ? 'disabled' : ''} outline-none w-50 p-2 hover:bg-[#185EA5] disabled:hover:bg-transparent disabled:dark:text-[#f0f4f860] disabled:text-[#171a1c3b] rounded-xl text-cneter dark:text-[#F0F4F8] text-[#171A1C] focus:bg-[#185EA5] focus:text-white ${
       selectedTab === index ? ' bg-[#185EA5] text-white' : ''
     } `}
     ref={index === 0 ? firstBtnRef : null}

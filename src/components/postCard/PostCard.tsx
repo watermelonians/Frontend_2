@@ -19,6 +19,7 @@ export interface PostCardProps {
   feedbackCount: number;
   attachmentCount: number;
   tags: string[]; // Array of tag strings
+  onClick?: () => void;
 }
 
 
@@ -35,6 +36,7 @@ const PostCard: React.FC<PostCardProps> = ({
   feedbackCount,
   attachmentCount,
   tags,
+  onClick,
 }) => {
   const [upvote, handleUpVote] = useState<number>(upvoteCount);
   const [isUp, setIsUpvoted] = useState<boolean>(isUpvoted);
@@ -50,7 +52,7 @@ const PostCard: React.FC<PostCardProps> = ({
   };
 
   return (
-    <div className="rounded-md [background:linear-gradient(92.14deg,_rgba(11,_107,_203,_0.01),_rgba(11,_107,_203,_0.05)_99.18%),_#e3effb] flex flex-col items-start justify-start p-2 box-border gap-[8px] text-left text-xs text-neutral-soft-bg font-components-buttons-lg self-stretch w-full md:w-[90]">
+    <div className="rounded-md [background:linear-gradient(92.14deg,_rgba(11,_107,_203,_0.01),_rgba(11,_107,_203,_0.05)_99.18%),_primary] flex flex-col items-start justify-start p-2 box-border gap-[8px] text-left text-xs text-neutral-soft-bg font-components-buttons-lg self-stretch w-full md:w-[90]" onClick={onClick}>
       <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[8px] text-warning-plain-color1">
         {/* Render tags */}
         {/* Render tags using the Tag component */}

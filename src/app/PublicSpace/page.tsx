@@ -7,7 +7,7 @@ import { useState } from "react";
 import SuggestionCard from "@/components/SuggestionCard/SuggestionCard";
 import PostDetails from "@/components/PostDetails/PostDetails";
 import FeedbackCard from "@/components/Feedback_/Feedback_";
-import Card from "@/components/Card/Card";
+import getTagColor from "@/components/CategoryCard/Card";
 // export const metadata: Metadata = {
 //   title: "Next.js Tables | TailAdmin - Next.js Dashboard Template",
 //   description:

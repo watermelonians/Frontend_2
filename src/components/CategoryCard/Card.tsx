@@ -5,23 +5,43 @@ import { AiOutlineLike, AiOutlineComment, AiOutlinePaperClip, AiOutlineEye, AiOu
 import FollowSwitch from './followSwitch';
 import Image from 'next/image';
 import { FaThumbsUp, FaRegThumbsUp } from 'react-icons/fa';
+import { promises } from 'dns';
+import { getTagTextColor } from 'utils/getTagTextColor';
+import { getTagColor } from 'utils/getTagColor';
 
-const getTagColor = (tagName) => {
-    switch (tagName) {
-      case "Tag1":
-        return 'dark:bg-[#492B08] bg-[#FCE1C2]';
-      case "Tag2":
-        return 'dark:bg-[#7D1212] bg-[#F7C5C5]';
-      case "Tag3":
-        return 'dark:bg-[#0A470A] bg-[#C7F7C7]';
-      case "Tag4":
-        return 'dark:bg-[#0B6BCB] bg-[#C7DFF7]';
-      default:
-        return 'dark:bg-[#636B74] bg-[#DDE7EE]'; // Default color
-    }
-  };
 
-  const getTagTextColor = (tagName) => {
+export interface CardProps {
+  title: string;
+  avatarSrc: string;
+  username: string;
+  date: string;
+  time: string;
+  category: string[];
+  cluster: string;
+  archive: boolean;
+  follow: boolean;
+  likes: number;
+  like: boolean;
+  comments: number;
+  myVote: boolean;
+  priority: number;
+  description: string;
+  attachments: [];
+  solved: boolean;
+}
+
+const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, like, comments, myVote, priority, description, attachments, solved }) => {
+
+  const [backdrop, setBackdrop] = useState('blur');
+  const [isChecked, setIsChecked] = useState(myVote);
+
+
+  const handleOpen = (backdrop) => {
+    setBackdrop(backdrop)
+    onOpen();
+  }
+
+  const getTagTextColor = (tagName: string) : string => {
     switch (tagName) {
       case "Tag1":
         return 'text-[#9A5B13] dark:text-[#F3C896]';
@@ -36,16 +56,20 @@ const getTagColor = (tagName) => {
     }
   };
 
-const Card = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, like, comments, myVote, priority, description, attachments, solved }) => {
-
-  const [backdrop, setBackdrop] = useState('blur');
-  const [isChecked, setIsChecked] = useState(myVote);
-
-
-  const handleOpen = (backdrop) => {
-    setBackdrop(backdrop)
-    onOpen();
-  }
+  const getTagColor = (tagName: string) : string => {
+    switch (tagName) {
+      case "Tag1":
+        return 'dark:bg-[#492B08] bg-[#FCE1C2]';
+      case "Tag2":
+        return 'dark:bg-[#7D1212] bg-[#F7C5C5]';
+      case "Tag3":
+        return 'dark:bg-[#0A470A] bg-[#C7F7C7]';
+      case "Tag4":
+        return 'dark:bg-[#0B6BCB] bg-[#C7DFF7]';
+      default:
+        return 'dark:bg-[#636B74] bg-[#DDE7EE]'; // Default color
+    }
+  };
 
   const [upvote, handleUpVote] = useState<number>(likes || 0);
   const [isUp, setIsUpvoted] = useState<boolean>(like || false);

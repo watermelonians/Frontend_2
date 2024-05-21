@@ -5,43 +5,23 @@ import { AiOutlineLike, AiOutlineComment, AiOutlinePaperClip, AiOutlineEye, AiOu
 import FollowSwitch from './followSwitch';
 import Image from 'next/image';
 import { FaThumbsUp, FaRegThumbsUp } from 'react-icons/fa';
-import { promises } from 'dns';
-import { getTagTextColor } from 'utils/getTagTextColor';
-import { getTagColor } from 'utils/getTagColor';
 
+const getTagColor = (tagName) => {
+    switch (tagName) {
+      case "Tag1":
+        return 'dark:bg-[#492B08] bg-[#FCE1C2]';
+      case "Tag2":
+        return 'dark:bg-[#7D1212] bg-[#F7C5C5]';
+      case "Tag3":
+        return 'dark:bg-[#0A470A] bg-[#C7F7C7]';
+      case "Tag4":
+        return 'dark:bg-[#0B6BCB] bg-[#C7DFF7]';
+      default:
+        return 'dark:bg-[#636B74] bg-[#DDE7EE]'; // Default color
+    }
+  };
 
-export interface CardProps {
-  title: string;
-  avatarSrc: string;
-  username: string;
-  date: string;
-  time: string;
-  category: string[];
-  cluster: string;
-  archive: boolean;
-  follow: boolean;
-  likes: number;
-  like: boolean;
-  comments: number;
-  myVote: boolean;
-  priority: number;
-  description: string;
-  attachments: [];
-  solved: boolean;
-}
-
-const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, like, comments, myVote, priority, description, attachments, solved }) => {
-
-  const [backdrop, setBackdrop] = useState('blur');
-  const [isChecked, setIsChecked] = useState(myVote);
-
-
-  const handleOpen = (backdrop) => {
-    setBackdrop(backdrop)
-    onOpen();
-  }
-
-  const getTagTextColor = (tagName: string) : string => {
+  const getTagTextColor = (tagName) => {
     switch (tagName) {
       case "Tag1":
         return 'text-[#9A5B13] dark:text-[#F3C896]';
@@ -56,20 +36,36 @@ const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, cat
     }
   };
 
-  const getTagColor = (tagName: string) : string => {
-    switch (tagName) {
-      case "Tag1":
-        return 'dark:bg-[#492B08] bg-[#FCE1C2]';
-      case "Tag2":
-        return 'dark:bg-[#7D1212] bg-[#F7C5C5]';
-      case "Tag3":
-        return 'dark:bg-[#0A470A] bg-[#C7F7C7]';
-      case "Tag4":
-        return 'dark:bg-[#0B6BCB] bg-[#C7DFF7]';
-      default:
-        return 'dark:bg-[#636B74] bg-[#DDE7EE]'; // Default color
-    }
-  };
+  export interface CardProps {
+    title: string;
+    avatarSrc: string;
+    username: string;
+    date: string;
+    time: string;
+    category: string[];
+    cluster: string;
+    archive: boolean;
+    follow: boolean;
+    likes: number;
+    like: boolean;
+    comments: number;
+    myVote: boolean;
+    priority: number;
+    description: string;
+    attachments: [];
+    solved: boolean;
+  }
+  
+  const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, category, cluster, archive, follow, likes, like, comments, myVote, priority, description, attachments, solved }) => {
+  
+  const [backdrop, setBackdrop] = useState('blur');
+  const [isChecked, setIsChecked] = useState(myVote);
+
+
+  const handleOpen = (backdrop) => {
+    setBackdrop(backdrop)
+    onOpen();
+  }
 
   const [upvote, handleUpVote] = useState<number>(likes || 0);
   const [isUp, setIsUpvoted] = useState<boolean>(like || false);
@@ -154,7 +150,7 @@ const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, cat
   
     return (
       <><li className="mt-3 cursor-pointer">
-        <div onClick={() => handleOpen("blur")} className="block p-5 dark:bg-[#050C28] bg-[#EDF5FD] rounded-xl shadow">
+        <div onClick={() => handleOpen(backdrop)} className="block p-5 dark:bg-[#050C28] bg-[#EDF5FD] rounded-xl shadow">
           <div className="flex justify-between">
             <p className="text-sm font-bold leading-snug dark:text-[#F0F4F8] text-[#171A1C] text-left">{title}</p>
           </div>
@@ -196,7 +192,7 @@ const Card: React.FC<CardProps> = ({ title, avatarSrc, username, date, time, cat
             </span>
           </div>
         </div>
-      </li><Modal aria-hidden="true" isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior={'inside'} className='mt-20 w-150 h-150 dark:bg-[#050C28] bg-[#EDF5FD] rounded-lg shadow-2xl shadow-[#000000BF] dark:shadow-[#EDF5FD]'>
+      </li><Modal aria-hidden="true" isOpen={isOpen} onOpenChange={onOpenChange} backdrop={backdrop} scrollBehavior={'inside'} className='mt-20 w-150 h-150 dark:bg-[#050C28] bg-[#EDF5FD] rounded-lg shadow-2xl shadow-[#000000BF] dark:shadow-[#EDF5FD]'>
           <ModalContent>
             {(onClose) => (
               <>

@@ -53,7 +53,8 @@ export const BentoGridItem = ({
   const [upvote, handleUpVote] = useState<number>(upvote_ || 0);
   const [isUp, setIsUpvoted] = useState<boolean>(isUp_ || false);
 
-  const handleUpVoteClick = () => {
+  const handleUpVoteClick = (e: React.MouseEvent) => {
+      e.preventDefault();
     if (isUp) {
       handleUpVote((prevCount) => prevCount - 1);
       setIsUpvoted(false);

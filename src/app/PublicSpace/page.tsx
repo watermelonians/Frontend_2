@@ -1,7 +1,5 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import PostCard, {PostCardProps} from "@/components/postCard/PostCard";
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
   title: "Public Space",

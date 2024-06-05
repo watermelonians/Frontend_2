@@ -30,13 +30,24 @@ export default async function DiscussionSpace() {
         <>
           <BentoGridItem
             key={i}
-            id= {i}
+            id={i}
             title={item.title}
             Tags={item.Tags}
-            header={item.header}
             upvote_={item.upvoteCount}
-            feedbackCount={item.feedbackCount}
-            attachmentCount={item.attachmentCount}
+            feedbackCount={item.feedbackCount} 
+            avatarSrc={item.avatarSrc} 
+            username={item.username} 
+            date={item.date} 
+            time={item.time} 
+            cluster={item.cluster} 
+            archive={item.archive} 
+            follow={item.follow} 
+            like={item.like} 
+            myVote={item.myVote} 
+            priority={item.priority} 
+            description={item.description} 
+            attachments={item.attachments} 
+            solved={item.solved}          
           />
         </>
       ))}
@@ -44,64 +55,264 @@ export default async function DiscussionSpace() {
   );
 }
 
-const Skeleton = () => (
-  <Image src={cards_05} alt="Problem Image" loading="lazy"></Image>
-);
 const items = [
   {
-    title: "The Dawn of Innovation",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "The Digital Revolution",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "The Art of Design",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "No WATER in the residence area of the city",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "The Pursuit of Knowledge",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "The Joy of Creation",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
   {
-    title: "The Spirit of Adventure",
-    Tags: ["Tag1", "Tag2", "Tag3"],
-    header: <Skeleton />,
-    upvoteCount: 110,
+    title: "Add discount code to checkout page",
+    avatarSrc: "https://i.pravatar.cc/100",
+    username: "Username",
+    date: "2019-09-14",
+    time: "12:12",
+    Tags: ["Tag1", "Tag2", "Tag3", "Tag4"],
+    cluster: "Problem",
+    archive: false,
+    follow: false,
+    upvoteCount: 214,
+    like: false,
     feedbackCount: 5,
-    attachmentCount: 2,
+    myVote: true,
+    priority: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. ",
+    attachments: [
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+      {
+        title: "Displayed text here", 
+        date: "2019-09-14",
+        time: "12:12",
+        username: "Username",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        url: "https://i.pravatar.cc/100",
+      },
+
+    ],
+    solved: true,
   },
 ];

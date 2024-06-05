@@ -11,7 +11,7 @@ const FollowButton = ({ follow, onFollowChange }) => {
   return (
     <button
       type="button"
-      className={`mt-1 flex items-center px-0.5 py-2 rounded-2xl transition-all duration-300 ease-in-out justify-center ${
+      className={`mt-1 flex items-center px-2 py-2 rounded-2xl transition-all duration-300 ease-in-out justify-center ${
         isFollowing
           ? 'dark:bg-[#1F7A1F99] bg-[#1F7A1F99] text-[#FFFFFF] hover:bg-[#C7F7C799] focus:outline-none'
           : 'dark:bg-[#C7F7C797] bg-[#C7F7C797] text-[#FFFFFF] hover:bg-[#0A470A99] focus:outline-none'

@@ -317,7 +317,7 @@ const getTagColor = (tagName) => {
                 </ModalHeader>
                 <ModalBody>
                   <p className='whitespace-pre-line flex dark:text-[#F0F4F8] text-[#171A1C] font-normal text-sm'>
-                    {description.split('.').join('.\n')}
+                    {description.split('.').join('.\n\n')}
                   </p>
                 </ModalBody>
                 <ModalHeader>

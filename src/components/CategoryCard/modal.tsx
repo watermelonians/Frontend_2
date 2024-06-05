@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AiFillAudio, AiFillFileExcel, AiFillFilePdf, AiFillFilePpt, AiFillFileText, AiFillFileWord, AiFillFileZip, AiFillHtml5, AiFillPicture, AiFillVideoCamera, AiOutlineClose, AiOutlineLink, AiOutlinePlus } from 'react-icons/ai';
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, input } from "@nextui-org/react";
 import { MemberTooltip} from '../animated-tooltip/roletooltip';
 import DropDownMembers from './dropdownMembers';
 import DropDownTags from './dropdownTags';

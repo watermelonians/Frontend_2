@@ -119,7 +119,7 @@ const DropDownTags = ({ people, onSelectedTagsChange }) => {
                         <input
                         type="checkbox"
                         checked={selectedTags.has(person.id)}
-                        className="form-checkbox border border-[#97C3F0] bg-[#EDF5FD] h-3 w-3 rounded text-[#0B6BCB] flex justify-end focus-visible:fa"
+                        className="form-checkbox border border-[#97C3F0] bg-[#EDF5FD] h-3 w-3 rounded text-[#0B6BCB] flex justify-end"
                         onChange={() => {}}
                         />
                         <div className='flex flex-grow'></div>

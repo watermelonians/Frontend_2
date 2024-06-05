@@ -8,25 +8,47 @@ import { FaEye, FaRegThumbsUp, FaThumbsUp } from "react-icons/fa";
 import Link from "next/link";
 
 export const BentoGridItem = ({
-  className,
-  id,
-  title,
-  Tags,
-  header,
-  isUp_,
-  upvote_,
-  feedbackCount,
-  attachmentCount,
+    className,
+    id,
+    isUp_,
+    title,
+    avatarSrc,
+    username,
+    date,
+    time,
+    Tags,
+    cluster,
+    archive,
+    follow,
+    upvote_,
+    like,
+    feedbackCount,
+    myVote,
+    priority,
+    description,
+    attachments,
+    solved,
 }: {
-  className?: string;
-  id?: number | string;
-  title?: string | React.ReactNode;
-  Tags?: string[] | React.ReactNode;
-  header?: React.ReactNode;
-  isUp_?: boolean;
-  upvote_?: number;
-  feedbackCount?: number;
-  attachmentCount?: number;
+    className?: string;
+    id?: number;
+    isUp_?: boolean;
+    title: string;
+    avatarSrc: string;
+    username: string;
+    date: string;
+    time: string;
+    Tags: string[];
+    cluster: string;
+    archive: boolean;
+    follow: boolean;
+    upvote_: number;
+    like: boolean;
+    feedbackCount: number;
+    myVote: boolean;
+    priority: number;
+    description: string;
+    attachments: {};
+    solved: boolean;
 }) => {
   const [upvote, handleUpVote] = useState<number>(upvote_ || 0);
   const [isUp, setIsUpvoted] = useState<boolean>(isUp_ || false);
@@ -42,16 +64,35 @@ export const BentoGridItem = ({
     }
   };
 
+  const queryParams = new URLSearchParams({
+    id: id.toString(),
+    title,
+    avatarSrc,
+    username,
+    date,
+    time,
+    Tags: Tags.join(","),
+    cluster,
+    archive: archive.toString(),
+    follow: follow.toString(),
+    upvote_: upvote_.toString(),
+    like: like.toString(),
+    feedbackCount: feedbackCount.toString(),
+    myVote: myVote.toString(),
+    priority: priority.toString(),
+    description,
+    attachments: JSON.stringify(attachments),
+    solved: solved.toString(),
+  });
   return (
     <>
-      <Link href={`/DiscussionSpace/${id}`}>
+      <Link href={`/DiscussionSpace/${id}?${queryParams.toString()}`}>
         <div
           className={cn(
             "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border-transparent p-4 shadow-xl transition duration-200 hover:shadow-xl dark:bg-black dark:shadow-none",
             className,
           )}
         >
-          {header}
           <div className="transition duration-200 group-hover/bento:translate-x-2">
             <div className="font- mb-2 mt-2 overflow-hidden font-bold text-neutral-600 dark:text-neutral-200">
               <div
@@ -90,7 +131,7 @@ export const BentoGridItem = ({
               </div>
               <div className="flex flex-row items-start justify-start gap-[4px]">
                 <GrAttachment />
-                <div className="p">{attachmentCount}</div>
+                <div className="p">{Object.keys(attachments).length}</div>
               </div>
               <FaEye />
             </div>

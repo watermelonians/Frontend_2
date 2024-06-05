@@ -13,7 +13,6 @@ import getTagColor from "@/components/CategoryCard/Card";
 //   description:
 //     "This is Next.js Tables page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
 // };
-
 const postProps: PostCardProps = {
   isUpvoted: false,
   postTitle: "Sample Post Title",

@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getAuth } from "firebase/auth";
-import { setMaxIdleHTTPParsers } from "http";
+import { getAuth, getIdToken } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { parseCookies, setCookie } from "nookies"; // Assuming you are using 'nookies' for managing cookies
-import { cookies } from "next/headers";
+
+export const dynamic = "force-dynamic";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -70,19 +70,6 @@ const DropdownUser = () => {
           setDiplayName(userDisplayName);
           setEmail(userEmail);
           setPhotoURL(userPhotoURL);
-
-          setCookie(null, "displayName", userDisplayName, {
-            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
-            path: "/", // The cookie is available for the entire domain
-          });
-          setCookie(null, "email", userEmail, {
-            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
-            path: "/",
-          });
-          setCookie(null, "photoURL", userPhotoURL, {
-            maxAge: 30 * 24 * 60 * 60, // Expires in 30 days
-            path: "/",
-          });
         } else {
           // TODO
           router.push("/");
@@ -91,7 +78,7 @@ const DropdownUser = () => {
     } catch (e: any) {
       console.log("There was an error with the backend.");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="relative">

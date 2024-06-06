@@ -76,6 +76,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       destroyCookie(null, "email", { path: "/" });
       destroyCookie(null, "photoURL", { path: "/" });
       destroyCookie(null, "displayName", { path: "/" });
+      destroyCookie(null, "token", { path: "/" });
 
       router.push("/");
     } catch (error) {
@@ -392,7 +393,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
               {/* <!-- Account Pages Item Sign Out --> */}
               <li>
-                <Link
+                <Link onClick={handleSignOut}
                   href="/forms/form-layout"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-1 font-medium text-black-2 dark:text-bodydark1 duration-300 ease-in-out active:bg-sky-400 focus:bg-sky-400 hover:bg-sky-400 dark:hover:bg-sky-400 ${
                     pathname.includes("/forms/form-layout") &&

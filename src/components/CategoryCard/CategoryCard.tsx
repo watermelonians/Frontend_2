@@ -7,7 +7,7 @@ const CategoryCard = ({ title, items }) => {
   const [cards, setCards] = useState(items);
 
   const addCard = (newCard) => {
-    setCards([...cards, newCard]);
+    
   };
 
   return (

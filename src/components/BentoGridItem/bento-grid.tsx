@@ -89,7 +89,7 @@ export const BentoGridItem = ({
       <Link href={`/DiscussionSpace/${id}?${queryParams.toString()}`}>
         <div
           className={cn(
-            "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border-transparent p-4 shadow-xl transition duration-200 hover:shadow-xl dark:bg-black dark:shadow-none",
+            "group/bento shadow-input col-span-1 flex flex-col w-full justify-between space-y-1 rounded-xl border-transparent p-4 shadow-xl transition duration-200 hover:shadow-xl dark:bg-black dark:shadow-none",
             className,
           )}
         >

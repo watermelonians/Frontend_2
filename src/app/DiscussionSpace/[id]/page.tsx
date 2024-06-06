@@ -1,6 +1,8 @@
 "use client";
 
 import FollowSwitch from '@/components/CategoryCard/followSwitch';
+import AddCardModal from '@/components/CategoryCard/modal';
+import AddSuggestion from '@/components/SuggestionCard/AddSuggestionCard';
 import SuggestionCard from '@/components/SuggestionCard/SuggestionCard';
 import { Modal, ModalContent, ModalHeader, ModalBody } from '@nextui-org/react';
 import cluster from 'cluster';
@@ -157,6 +159,10 @@ function ProblemDetailsDisc() {
 
   const TagsArray = Array.from(Tags.values());
   const showmoreTags = TagsArray.length > 3;
+  const [showModal, setShowModal] = useState(false);
+  const addCard = (newCard) => {
+    
+  };
   
   return (
     <div className='flex w-full flex-row overflow-hidden overflow-y-hidden'>
@@ -318,7 +324,7 @@ function ProblemDetailsDisc() {
           <div className='flex flex-row justify-between w-full'>
             <div className='flex text-2xl font-bold dark:text-[#97C3F0] text-[#0B6BCB]'>Discussion</div>
             <div className='flex flex-grow'></div>
-            <button className='flex h-fit justify-end rounded dark:text-[#FFFFFF] text-[#FFFFFF] text-xs font-semibold dark:bg-[#1F7A1F] bg-[#1F7A1F] px-3 py-2'>Add suggestion</button>
+            <button className='flex h-fit justify-end rounded dark:text-[#FFFFFF] text-[#FFFFFF] text-xs font-semibold dark:bg-[#1F7A1F] bg-[#1F7A1F] px-3 py-2' onClick={() => setShowModal(true)}>Add suggestion</button>
           </div>
           <div className='grid  gap-4 mt-4 grid-cols-3'>
             <SuggestionCard avatarSrc={avatarSrc} name={username} role={'Role Here'} content={'Loremm kfjkefz kefjkzlkejzlf  ejfekekf ekfjkejzkje ekfjzkjflkjfez ekjzfkez'} likeCount={56} commentCount={49}/>
@@ -343,6 +349,7 @@ function ProblemDetailsDisc() {
           <AiFillCaretDown className={`h-3 w-3 dark:text-[#0B6BCB] text-[#0B6BCB] transform ml-1 ${visibleClusters === 5 ? 'rotate-0' : 'rotate-180'}`} />
         </div>
       </div>
+      <AddSuggestion showModal={showModal} setShowModal={setShowModal} addCard={addCard} avatarSrc={avatarSrc} name={username} role={'Role Here'}/>
     </div>
   )
 }

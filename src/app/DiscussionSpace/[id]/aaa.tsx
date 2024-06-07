@@ -8,7 +8,6 @@ import SuggestionCard from '@/components/SuggestionCard/SuggestionCard';
 import { Modal, ModalContent, ModalHeader, ModalBody } from '@nextui-org/react';
 import cluster from 'cluster';
 import { time } from 'console';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { title } from 'process';
 import React, { useState } from 'react'
@@ -16,33 +15,11 @@ import { AiFillAudio, AiFillCaretDown, AiFillCaretLeft, AiFillFileExcel, AiFillF
 
 
 const getTagColor = (tagName) => {
-  switch (tagName) {
-    case "Tag1":
-      return 'dark:bg-[#492B08] bg-[#FCE1C2]';
-    case "Tag2":
-      return 'dark:bg-[#7D1212] bg-[#F7C5C5]';
-    case "Tag3":
-      return 'dark:bg-[#0A470A] bg-[#C7F7C7]';
-    case "Tag4":
-      return 'dark:bg-[#0B6BCB] bg-[#C7DFF7]';
-    default:
-      return 'dark:bg-[#636B74] bg-[#DDE7EE]'; // Default color
-  }
+  //...
 };
 
 const getTagTextColor = (tagName) => {
-  switch (tagName) {
-    case "Tag1":
-      return 'text-[#9A5B13] dark:text-[#F3C896]';
-    case "Tag2":
-      return 'text-[#C41C1C] dark:text-[#F09898]';
-    case "Tag3":
-      return 'text-[#1F7A1F] dark:text-[#A1E8A1]';
-    case "Tag4":
-      return 'text-[#12467B] dark:text-[#97C3F0]';
-    default:
-      return 'text-[#32383E] dark:text-[#CDD7E1]'; // Default color
-  }
+  //...
 };
 
 function ProblemDetailsDisc() {
@@ -121,43 +98,7 @@ function ProblemDetailsDisc() {
 
   // Define getImageIcon function
   const getImageIcon: GetImageIconFunction = ({ url }) => {
-      // Extract file extension from URL
-      const extension = url.split('.').pop()?.toLowerCase() ?? '';
-
-      // Define icons for different file types
-      const fileIcons: { [key: string]: JSX.Element } = {
-          'zip': <AiFillFileZip className=' h-8 w-8 text-[#ffb11f]' />,
-          'pdf': <AiFillFilePdf className=' h-8 w-8 text-[#E5252A]' />,
-          'docx': <AiFillFileWord className='h-8 w-8 text-[#0263d1]' />,
-          'doc': <AiFillFileWord className='h-8 w-8 text-[#0263d1]' />,
-          'odt': <AiFillFileWord className='h-8 w-8 text-[#0263d1]' />,
-          'xls': <AiFillFileExcel className='h-8 w-8 text-[#00733b]' />,
-          'xlsx': <AiFillFileExcel className='h-8 w-8 text-[#00733b]' />,
-          'pptx': <AiFillFilePpt className='h-8 w-8 text-[#e03303]' />,
-          'ppt': <AiFillFilePpt className='h-8 w-8 text-[#e03303]' />,
-          'txt': <AiFillFileText className='h-8 w-8 text-[#251d36]' />,
-          'mp3': <AiFillAudio className='h-8 w-8 text-[#9900cc]' />,
-          'wav': <AiFillAudio className='h-8 w-8 text-[#9900cc]' />,
-          'mp4': <AiFillVideoCamera className='h-8 w-8 text-[#fa0000]' />,
-          'avi': <AiFillVideoCamera className='h-8 w-8 text-[#fa0000]' />,
-          'mov': <AiFillVideoCamera className='h-8 w-8 text-[#fa0000]' />,
-          'ogg': <AiFillVideoCamera className='h-8 w-8 text-[#fa0000]' />,
-          'png': <AiFillPicture className='h-8 w-8 text-[#0ac963]' />,
-          'jpg': <AiFillPicture className='h-8 w-8 text-[#0ac963]' />,
-          'jpeg': <AiFillPicture className='h-8 w-8 text-[#0ac963]' />,
-          'gif': <AiFillPicture className='h-8 w-8 text-[#0ac963]' />,
-          'svg': <AiFillPicture className='h-8 w-8 text-[#0ac963]' />,
-          'html': <AiFillHtml5 className='h-8 w-8 text-[#00a1e0]' />,
-          // Add more file types and corresponding icons as needed
-      };
-
-      // Check if the extension exists in the fileIcons object
-      if (fileIcons.hasOwnProperty(extension)) {
-          return fileIcons[extension];
-      } else {
-          // If the extension is not found, return a default icon or handle it as per your requirements
-          return <AiOutlineLink className='h-8 w-8 text-white dark:text-black' />; // You can change this to any default icon you prefer
-      }
+      //...
   };
 
   
@@ -194,60 +135,7 @@ function ProblemDetailsDisc() {
       commentCount: 10,
       // Add other properties as needed for each suggestion card
     },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Jane Smith',
-      role: 'Another Role',
-      content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      likeCount: 15,
-      commentCount: 8,
-      // Add other properties as needed for each suggestion card
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'John Doe',
-      role: 'Role Here',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      likeCount: 20,
-      commentCount: 10,
-      // Add other properties as needed for each suggestion card
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'John Doe',
-      role: 'Role Here',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      likeCount: 20,
-      commentCount: 10,
-      // Add other properties as needed for each suggestion card
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'John Doe',
-      role: 'Role Here',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      likeCount: 20,
-      commentCount: 10,
-      // Add other properties as needed for each suggestion card
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'John Doe',
-      role: 'Role Here',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      likeCount: 20,
-      commentCount: 10,
-      // Add other properties as needed for each suggestion card
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'John Doe',
-      role: 'Role Here',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      likeCount: 20,
-      commentCount: 10,
-      // Add other properties as needed for each suggestion card
-    },
+    //...
     // Add more suggestion card data objects as needed
   ];
 
@@ -258,36 +146,7 @@ function ProblemDetailsDisc() {
       role: 'Teacher',
       content: 'This is a sample suggestion content. Please consider this suggestion.',
     },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Kamel Boukhalfa',
-      role: 'Teacher',
-      content: 'This is a sample suggestion content. Please consider this suggestion.',
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Houssam Berairi',
-      role: 'Teacher',
-      content: 'This is a sample suggestion content. Please consider this suggestion.',
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Mohammed Brahimi',
-      role: 'Teacher',
-      content: 'This is a sample suggestion content. Please consider this suggestion.',
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Tarek Madkour',
-      role: 'Teacher',
-      content: 'This is a sample suggestion content. Please consider this suggestion.',
-    },
-    {
-      avatarSrc: avatarSrc,
-      name: 'Ahmed Guessoum',
-      role: 'Teacher',
-      content: 'This is a sample suggestion content. Please consider this suggestion.',
-    }
+    ///...
   ];
 
 
@@ -504,7 +363,7 @@ function ProblemDetailsDisc() {
       }
       <div className='fixed right-2 max-w-40 min-w-40 items-center h-150 flex flex-col overflow-auto bg-gradient-to-b from-[#0B6BCB06] to-[#0B6BCB20] rounded-br-xl box-border'>
         {allClusters.slice(0, visibleClusters).map((cluster, index) => (
-          <button key={index} /*href={`/DiscussionSpace/${cluster.toLowerCase().replace(/\s/g, '')}`}*/ className='flex w-30 dark:bg-[#7D1212] bg-[#FCE4E4] p-1.5 m-2 rounded justify-center items-center'>
+          <button key={index} className='flex w-30 dark:bg-[#7D1212] bg-[#FCE4E4] p-1.5 m-2 rounded justify-center items-center'>
             <AiOutlineLeft className='mr-2 dark:text-[#F7C5C5] text-[#7D1212]'/>
             <p className='dark:text-[#F7C5C5] text-[#7D1212] font-semibold text-xs truncate'>{cluster}</p>
           </button>

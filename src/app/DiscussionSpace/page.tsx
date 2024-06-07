@@ -290,6 +290,7 @@ export default async function DiscussionSpace() {
   const handleClusterClick = (cluster) => {
     setSelectedCluster(cluster);
     setSelectedItem(null); // Deselect item when switching clusters
+    window.history.pushState(null, "", `/DiscussionSpace/${cluster.toLowerCase().replace(/\s/g, '')}`);
   };
 
   const handleItemClick = (item) => {

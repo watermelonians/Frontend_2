@@ -57,7 +57,7 @@ const PostCard: React.FC<PostCardProps> = ({
   };
 
   return (
-    <div className="rounded-md dark:bg-[#0A274440] bg-[#E3EFFB] flex flex-col items-start justify-start p-2 box-border gap-[8px] text-left text-xs text-neutral-soft-bg font-components-buttons-lg self-stretch w-full md:w-[90]" onClick={onClick}>
+    <div className="rounded-md dark:bg-[#0A274440] bg-[#E3EFFB] bg-gradient-to-r from-[#0B6BCB04] to-[#0B6BCB13] flex flex-col items-start justify-start p-2 box-border gap-[8px] text-left text-xs text-neutral-soft-bg font-components-buttons-lg self-stretch w-full md:w-[90]" onClick={onClick}>
       <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[8px] text-warning-plain-color1">
         {/* Render tags */}
         {/* Render tags using the Tag component */}

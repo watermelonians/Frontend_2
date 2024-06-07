@@ -155,6 +155,7 @@ const config: Config = {
         110: "27rem",
         114: "28rem",
         115: "28.75rem",
+        120: "30rem",
         125: "31.25rem",
         132.5: "33.125rem",
         132.75: "33.75rem",
@@ -341,6 +342,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui"), require('flowbite/plugin')],
+  plugins: [
+    require("daisyui"), 
+    require('flowbite/plugin')
+  ],
 };
 export default config;

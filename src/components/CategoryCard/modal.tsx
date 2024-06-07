@@ -318,7 +318,7 @@ const AddCardModal = ({ showModal, setShowModal, addCard }) => {
               Add
             </button>
             <input 
-              type="file" 
+              type="file"
               ref={inputRef} 
               onChange={(event) => handleFileChange(event, displayName)}
               multiple 

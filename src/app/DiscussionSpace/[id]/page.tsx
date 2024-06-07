@@ -3,6 +3,7 @@
 import FollowSwitch from '@/components/CategoryCard/followSwitch';
 import AddCardModal from '@/components/CategoryCard/modal';
 import AddSuggestion from '@/components/SuggestionCard/AddSuggestionCard';
+import DiscussionSuggestionCard from '@/components/SuggestionCard/DiscussionSuggestion';
 import SuggestionCard from '@/components/SuggestionCard/SuggestionCard';
 import { Modal, ModalContent, ModalHeader, ModalBody } from '@nextui-org/react';
 import cluster from 'cluster';
@@ -71,6 +72,7 @@ function ProblemDetailsDisc() {
   const allClusters = Array.from({ length: 7 }, (_, i) => `Cluster 0${i + 1}`);
   const [visibleClusters, setVisibleClusters] = useState(5);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [containerWidth, setContainerWidth] = useState('w-full');
 
   const handleToggleShow = () => {
     setVisibleClusters(visibleClusters === 5 ? allClusters.length : 5);
@@ -96,6 +98,17 @@ function ProblemDetailsDisc() {
   const handleFollowChange = (newFollowState) => {
     setIsFollowing(newFollowState);
     // Perform additional actions in the parent component if needed (e.g., API calls, data updates)
+  };
+
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
+    setContainerWidth((prevWidth) => (prevWidth === 'w-full' ? 'w-5/12' : 'w-full'));
+  };
+
+  const handleCloseCard = () => {
+    setContainerWidth((prevWidth) => (prevWidth === 'w-full' ? 'w-5/12' : 'w-full'));
   };
 
   type GetImageIconFunction = (props: { url: string }) => JSX.Element;
@@ -163,10 +176,119 @@ function ProblemDetailsDisc() {
   const addCard = (newCard) => {
     
   };
+
+  // Define the array of suggestion cards data
+  const cards = [
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Jane Smith',
+      role: 'Another Role',
+      content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      likeCount: 15,
+      commentCount: 8,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'John Doe',
+      role: 'Role Here',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      likeCount: 20,
+      commentCount: 10,
+      // Add other properties as needed for each suggestion card
+    },
+    // Add more suggestion card data objects as needed
+  ];
+
+  const suggestions = [
+    {
+      avatarSrc: avatarSrc,
+      name: 'Ahmed Guessoum',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Kamel Boukhalfa',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Houssam Berairi',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Mohammed Brahimi',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Tarek Madkour',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    },
+    {
+      avatarSrc: avatarSrc,
+      name: 'Ahmed Guessoum',
+      role: 'Teacher',
+      content: 'This is a sample suggestion content. Please consider this suggestion.',
+    }
+  ];
+
+
   
   return (
     <div className='flex w-full flex-row overflow-hidden overflow-y-hidden'>
-      <div className="flex flex-col dark:bg-[#0A274440] bg-[#E3EFFB] rounded-tl-xl rounded-bl-xl p-4 h-full min-h-150 mr-2 w-full max-w-280 overflow-y-auto">
+      <div className={`flex flex-col dark:bg-[#0A274440] bg-[#E3EFFB] rounded-tl-xl rounded-bl-xl p-4 h-full min-h-150 mr-2 ${containerWidth} max-w-270 overflow-y-auto transition-all duration-500 ease-in-out`}>
         <div className='flex flex-row justify-start mb-4'>
           <button 
             className='flex items-center dark:bg-[#171A1C] bg-[#F0F4F8] h-8 w-8 justify-center rounded'
@@ -311,7 +433,7 @@ function ProblemDetailsDisc() {
                         <p className='mr-1'>Added on</p>
                         <p>{attachment.date} : {attachment.time} by {attachment.username}</p>
                       </div>
-                      <p className=' w-114 truncate ...'>{attachment.description}</p>
+                      <p className='whitespace-pre-line truncate max-h-5'>{attachment.description}</p>
                     </div>
                   </a>
                   <button className='ml-25 rounded dark:text-[#C7DFF7] text-[#12467B] text-xs font-semibold dark:bg-[#0A2744] bg-[#E3EFFB] px-2 py-1 w-20'>remove</button>
@@ -326,18 +448,51 @@ function ProblemDetailsDisc() {
             <div className='flex flex-grow'></div>
             <button className='flex h-fit justify-end rounded dark:text-[#FFFFFF] text-[#FFFFFF] text-xs font-semibold dark:bg-[#1F7A1F] bg-[#1F7A1F] px-3 py-2' onClick={() => setShowModal(true)}>Add suggestion</button>
           </div>
-          <div className='grid  gap-4 mt-4 grid-cols-3'>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={'Role Here'} content={'Loremm kfjkefz kefjkzlkejzlf  ejfekekf ekfjkejzkje ekfjzkjflkjfez ekjzfkez'} likeCount={56} commentCount={49}/>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={''} content={'Loremm kfjkefz kefjkzlkejzlf ekjzfkez'} likeCount={12} commentCount={19}/>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={''} content={'Loremm kfjkefz kefjkzlkejzlf ekjzfkez'} likeCount={160} commentCount={8}/>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={''} content={'Loremm kfjkefz kefjkzlkejzlf ekjzfkez'} likeCount={140} commentCount={54}/>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={''} content={'Loremm kfjkefz kefjkzlkejzlf ekjzfkez'} likeCount={20} commentCount={30}/>
-            <SuggestionCard avatarSrc={avatarSrc} name={username} role={''} content={'Loremm kfjkefz kefjkzlkejzlf ekjzfkez'} likeCount={79} commentCount={10}/>
+          <div className={`mt-4 ${containerWidth === 'w-5/12' ? 'grid grid-cols-1 gap-4' : 'grid grid-cols-3 gap-4'}`}>
+            {cards.map((card, index) => (
+              <div key={index} onClick={() => handleCardClick(card)}>
+                <SuggestionCard {...card} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className='flex flex-grow'></div>
-      <div className='fixed right-2 max-w-35 h-150 flex flex-col overflow-auto bg-gradient-to-b from-[#0B6BCB06] to-[#0B6BCB20] rounded-br-xl box-border'>
+      {
+        containerWidth === 'w-5/12' ? 
+          <div className='ml-4 w-5/12 dark:bg-[#0A274440] bg-[#E3EFFB] transition-all duration-500 ease-in-out flex flex-col h-fit pb-4'>
+            <div className='flex justify-end p-2 items-end transition-all duration-500 ease-in-out '>
+              <button 
+                className='flex items-center dark:bg-[#171A1C] bg-[#F0F4F8] h-8 w-8 justify-center rounded'
+                onClick={() => handleCloseCard()}
+              >
+                <AiOutlineClose className='h-3 w-3 dark:text-[#DDE7EE] text-[#32383E]' />
+              </button>
+            </div>
+            <div className={`py-1 px-4 ${containerWidth === 'w-5/12' ? 'transition-all duration-500 ease-in-out h-fit' : 'hidden transition-all duration-500 ease-in-out'}`}>
+              <SuggestionCard avatarSrc={selectedCard.avatarSrc}
+                name={selectedCard.name}
+                role={selectedCard.role}
+                content={selectedCard.content}
+                likeCount={selectedCard.likeCount}
+                commentCount={selectedCard.commentCount}/>
+            </div>
+            <div className='flex w-1 dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] rounded-lg my-2 mx-6'>
+              <textarea className='flex dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] dark:text-[#F0F4F8] text-[#171A1C] font-semibold rounded-lg h-15 max-h-20 min-h-10 min-w-120 placeholder:font-bold dark:placeholder:text-[#F0F4F8] placeholder:text-[#171A1C]' placeholder='Write here ...'></textarea>
+            </div>
+            <div className=' p-4 grid grid-cols-1 gap-1'>
+              {
+                suggestions.map((suggestion, index) => (
+                  <div key={index}>
+                    <DiscussionSuggestionCard {...suggestion}/>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          :
+          <div></div>
+      }
+      <div className='fixed right-2 max-w-40 min-w-40 items-center h-150 flex flex-col overflow-auto bg-gradient-to-b from-[#0B6BCB06] to-[#0B6BCB20] rounded-br-xl box-border'>
         {allClusters.slice(0, visibleClusters).map((cluster, index) => (
           <div key={index} className='flex w-30 dark:bg-[#7D1212] bg-[#FCE4E4] p-1.5 m-2 rounded justify-center items-center'>
             <AiOutlineLeft className='mr-2 dark:text-[#F7C5C5] text-[#7D1212]'/>
@@ -351,6 +506,7 @@ function ProblemDetailsDisc() {
       </div>
       <AddSuggestion showModal={showModal} setShowModal={setShowModal} addCard={addCard} avatarSrc={avatarSrc} name={username} role={'Role Here'}/>
     </div>
+    
   )
 }
 

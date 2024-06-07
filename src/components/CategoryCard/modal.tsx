@@ -292,7 +292,7 @@ const AddCardModal = ({ showModal, setShowModal, addCard }) => {
               <DropDownRole people={Role} onSelectedRolesChange={handleSelectedRolesChange} />
               <div className='flex flex-row mt-4'>
               {selectedRolesArray.slice(0, 2).map((role, index) => (
-                <span key={index} className={`bg-[#C7DFF7] text-[#12467B] mr-1 px-2 py-1 flex items-center text-xs font-semibold rounded max-w-15`}>
+                <span key={index} className={`bg-[#C7DFF7] dark:bg-[#0A2744] text-[#12467B] dark:text-[#C7DFF7] mr-1 px-2 py-1 flex items-center text-xs font-semibold rounded max-w-15`}>
                   <p className='truncate'>{role.role}</p>
                 </span>
               ))}

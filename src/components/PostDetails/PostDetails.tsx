@@ -6,7 +6,8 @@ import { GrAttachment } from "react-icons/gr";
 import { MdFeedback } from "react-icons/md";
 import Card from "../CategoryCard/Card"
 import Tag from "../Tags/Tag";
-import FeedbackCard from "../Feedback/Feedback";
+import { getTagColor } from "utils/getTagColor";
+import { getTagTextColor } from "utils/getTagTextColor";
 
 const item = {
     title: "Add discount code to checkout page",
@@ -95,7 +96,7 @@ const PostDetails: React.FC<PostDetailsProps> = ({
   };
 
   return (
-  <div className="flex-col rounded-lg bg-red p-5 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+  <div className="flex-col rounded-lg dark:bg-[#0A274440] bg-gradient-to-r from-[#0B6BCB04] to-[#0B6BCB13] p-5 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
     <div className="self-stretch flex flex-row items-start justify-between text-xl">
         <div className="relative leading-[155%] pb-4  font-semibold">
           {postTitle}
@@ -107,8 +108,10 @@ const PostDetails: React.FC<PostDetailsProps> = ({
   <div className="pb-4 self-stretch flex flex-row flex-wrap items-start justify-start gap-[8px] text-warning-plain-color1">
         {/* Render tags */}
         {/* Render tags using the Tag component */}
-        {tags.map((tag: string, index: Key | null | undefined) => (
-          <Tag key={index} name={tag} />
+        {tags.map((tag, index) => (
+          <span key={index} className={`px-2 py-1 leading-tight inline-flex items-center rounded-lg mr-1 font-semibold text-xs ${getTagTextColor(tag)} ${getTagColor(tag)}`}>
+            #{tag}
+          </span>
         ))}
       </div>
   <div className="relative mt-1 flex items-center gap-x-4">

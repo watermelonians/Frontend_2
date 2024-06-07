@@ -8,6 +8,7 @@ import SuggestionCard from '@/components/SuggestionCard/SuggestionCard';
 import { Modal, ModalContent, ModalHeader, ModalBody } from '@nextui-org/react';
 import cluster from 'cluster';
 import { time } from 'console';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { title } from 'process';
 import React, { useState } from 'react'
@@ -73,6 +74,7 @@ function ProblemDetailsDisc() {
   const [visibleClusters, setVisibleClusters] = useState(5);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [containerWidth, setContainerWidth] = useState('w-full');
+  const [textareaValue, setTextareaValue] = useState('');
 
   const handleToggleShow = () => {
     setVisibleClusters(visibleClusters === 5 ? allClusters.length : 5);
@@ -91,6 +93,10 @@ function ProblemDetailsDisc() {
       handleUpVote((prevCount) => prevCount + 1);
       setIsUpvoted(true);
     }
+  };
+
+  const handleTextareaChange = (e) => {
+    setTextareaValue(e.target.value);
   };
 
   const [isFollowing, setIsFollowing] = useState(false); // Example initial state
@@ -476,10 +482,14 @@ function ProblemDetailsDisc() {
                 likeCount={selectedCard.likeCount}
                 commentCount={selectedCard.commentCount}/>
             </div>
-            <div className='flex w-1 dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] rounded-lg my-2 mx-6'>
-              <textarea className='flex dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] dark:text-[#F0F4F8] text-[#171A1C] font-semibold rounded-lg h-15 max-h-20 min-h-10 min-w-120 placeholder:font-bold dark:placeholder:text-[#F0F4F8] placeholder:text-[#171A1C]' placeholder='Write here ...'></textarea>
+            <div className='flex w-1 flex-col dark:border-[#12467B40] border-[#C7DFF7] rounded-lg my-2 mx-6'>
+              <textarea className='flex dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] dark:text-[#F0F4F8] text-[#171A1C] font-semibold rounded-lg h-15 max-h-20 min-h-10 min-w-120 placeholder:font-bold dark:placeholder:text-[#F0F4F8] placeholder:text-[#171A1C]' value={textareaValue} onChange={handleTextareaChange} placeholder='Write here ...'></textarea>
             </div>
-            <div className=' p-4 grid grid-cols-1 gap-1'>
+            <div className='flex flex-row mr-4'>
+              <div className='flex flex-grow'></div>
+              <button className={`flex h-fit justify-end rounded dark:text-[#FFFFFF] text-[#FFFFFF] text-xs font-semibold ${textareaValue ? 'dark:bg-[#1F7A1F] bg-[#1F7A1F]' : 'dark:bg-[#636B74] bg-[#DDE7EE]'} dark:bg-[#1F7A1F] bg-[#1F7A1F] px-3 py-2`} disabled={!textareaValue}>Add</button>
+            </div>
+            <div className='p-4 grid grid-cols-1 gap-1'>
               {
                 suggestions.map((suggestion, index) => (
                   <div key={index}>
@@ -494,10 +504,10 @@ function ProblemDetailsDisc() {
       }
       <div className='fixed right-2 max-w-40 min-w-40 items-center h-150 flex flex-col overflow-auto bg-gradient-to-b from-[#0B6BCB06] to-[#0B6BCB20] rounded-br-xl box-border'>
         {allClusters.slice(0, visibleClusters).map((cluster, index) => (
-          <div key={index} className='flex w-30 dark:bg-[#7D1212] bg-[#FCE4E4] p-1.5 m-2 rounded justify-center items-center'>
+          <button key={index} /*href={`/DiscussionSpace/${cluster.toLowerCase().replace(/\s/g, '')}`}*/ className='flex w-30 dark:bg-[#7D1212] bg-[#FCE4E4] p-1.5 m-2 rounded justify-center items-center'>
             <AiOutlineLeft className='mr-2 dark:text-[#F7C5C5] text-[#7D1212]'/>
             <p className='dark:text-[#F7C5C5] text-[#7D1212] font-semibold text-xs truncate'>{cluster}</p>
-          </div>
+          </button>
         ))}
         <div onClick={handleToggleShow} className='flex w-30 p-1 m-2 mt-4 rounded justify-center items-center cursor-pointer'>
           <p className='dark:text-[#0B6BCB] text-[#0B6BCB] font-semibold text-xs truncate'>{visibleClusters === 5 ? 'Show More' : 'Show Less'}</p>

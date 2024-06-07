@@ -1,13 +1,8 @@
 "use client"
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import PostCard, {PostCardProps} from "@/components/postCard/PostCard";
-import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { useState } from "react";
-import SuggestionCard from "@/components/SuggestionCard/SuggestionCard";
 import PostDetails from "@/components/PostDetails/PostDetails";
 import FeedbackCard from "@/components/Feedback_/Feedback_";
-import getTagColor from "@/components/CategoryCard/Card";
 // export const metadata: Metadata = {
 //   title: "Next.js Tables | TailAdmin - Next.js Dashboard Template",
 //   description:
@@ -20,7 +15,7 @@ const postProps: PostCardProps = {
   postContent: "This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   authorName: "John Doe",
   authorRole: "Software Engineer",
-  authorAvatarSrc: "",
+  authorAvatarSrc: "https://i.pravatar.cc/100",
   upvoteCount: 110,
   feedbackCount: 5,
   attachmentCount: 2,
@@ -44,9 +39,9 @@ const TablesPage = () => {
 
   return (
 
-      <div className="flex">
+      <div className="flex gap-2">
         {/* PostCards Container */}
-        <div className={`transform transition-all ${activePostId ? 'w-1/2' : 'w-full'}`}>
+        <div className={`transform transition-all flex flex-col gap-2 ${activePostId ? 'w-1/2' : 'w-full'}`}>
           {postCards}
         </div>
 
@@ -54,17 +49,18 @@ const TablesPage = () => {
         <div className={`transform transition-all ${activePostId ? 'w-1/2' : 'w-0'}`}>
           {/* Render the details of the active post here */}
           {activePostId && 
-          <div className="mb-2">
-            <PostDetails postTitle={"Key establishment problem"} postDate={"2012 april "} postContent={"Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des"} authorName={"Ahemd Guessoum "} authorRole={"Full Professor, AI Reasercher"} authorAvatarSrc={""} upvoteCount={0} feedbackCount={0} attachmentCount={0} tags={['predifined', 'Tag1']} problemId={""} image={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} comments={[]}/>
-          </div>}
-          <div className="flex flex-col gap-2">
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-            <FeedbackCard avatarSrc={"https://d2w9m16hs9jc37.cloudfront.net/dimg/blog/2023/06/hockerty_pinstripe_suit_for_a_short_guy_58b20450_8200_45a6_8722_60bb6db1a270.jpg"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"}/>
-          </div>
+            <><div className="mb-2">
+            <PostDetails postTitle={"Key establishment problem"} postDate={"2012 april "} postContent={"Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des"} authorName={"Ahemd Guessoum "} authorRole={"Full Professor, AI Reasercher"} authorAvatarSrc={"https://i.pravatar.cc/100"} upvoteCount={0} feedbackCount={0} attachmentCount={0} tags={['predifined', 'Tag1']} problemId={""} image={"https://i.pravatar.cc/100"} comments={[]} />
+          </div><div className="flex flex-col">
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+              <FeedbackCard avatarSrc={"https://i.pravatar.cc/100"} name={"Kamel Boukhalfa"} role={"Big data consultant"} content={"Hello students I am happy to tell you that this problem will be solved asap dont worry"} Date={"12 april 2025"} />
+            </div></>
+          }
+          
         </div>
       </div>
 

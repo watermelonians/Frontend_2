@@ -1,5 +1,6 @@
 "use client";
 import "jsvectormap/dist/css/jsvectormap.css";
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import "flatpickr/dist/flatpickr.min.css";
 import "@/css/satoshi.css";
 import "@/css/style.css";

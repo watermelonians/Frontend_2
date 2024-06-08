@@ -16,7 +16,7 @@
     "@nextui-org/switch": "^2.0.28",
     "@nextui-org/tabs": "^2.0.29",
     "@tabler/icons-react": "^3.2.0",
-    "apexcharts": "^3.45.2",
+    "apexcharts": "^3.49.1",
     "async-local-storage": "^2.3.1",
     "bootstrap": "^5.3.3",
     "clsx": "^2.1.0",
@@ -25,6 +25,9 @@
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.9.0",
     "framer-motion": "^11.1.7",
+    "igniteui-react": "^18.6.0",
+    "igniteui-react-charts": "^18.6.0",
+    "igniteui-react-core": "^18.6.0",
     "jsvectormap": "^1.5.3",
     "next": "^14.2.3",
     "nookies": "^2.5.2",
@@ -35,6 +38,7 @@
     "react-icons": "^5.1.0",
     "react-tabs": "^6.0.2",
     "reactstrap": "^9.2.2",
+    "recharts": "^2.12.7",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {

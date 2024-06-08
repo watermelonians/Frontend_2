@@ -344,7 +344,9 @@ const config: Config = {
   },
   plugins: [
     require("daisyui"), 
-    require('flowbite/plugin')
+    require('flowbite/plugin')({
+      charts: true,
+  }),
   ],
 };
 export default config;

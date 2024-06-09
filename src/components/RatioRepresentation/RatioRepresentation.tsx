@@ -36,7 +36,9 @@ const RatioRepresentation: React.FC<RatioRepresentationProps> = ({
           </div>
           <div className="flex-grow"></div> {/* This div will push the button to the bottom */}
           <div className="flex justify-start"> {/* This div will hold the button at the bottom */}
+          <a href="/Analytics/Statistics">
             <button className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-sky-300 text-black dark:text-white">See Details</button>
+          </a>
           </div>
         </div>
         <div className="flex-grow"></div>

@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-const SwitcherThree = () => {
+const Switch4 = () => {
   const [enabled, setEnabled] = useState(false);
 
   return (
     <div>
       <label
-        htmlFor="toggle3"
+        htmlFor="toggle4"
         className="flex cursor-pointer select-none items-center"
       >
         <div className="relative">
           <input
             type="checkbox"
-            id="toggle3"
+            id="toggle4"
             className="sr-only"
             onChange={() => {
               setEnabled(!enabled);
@@ -63,4 +63,4 @@ const SwitcherThree = () => {
   );
 };
 
-export default SwitcherThree;
+export default Switch4;

@@ -10,6 +10,7 @@ import React from "react";
 import { AuthContextProvider } from "../context/AuthContext";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { usePathname } from "next/navigation";
+import Head from "next/head";
 
 export default function RootLayout({
   children,

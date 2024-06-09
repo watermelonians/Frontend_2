@@ -70,6 +70,7 @@ function ProblemDetailsDisc() {
   const [upvote, handleUpVote] = useState<number>(upvote_ || 0);
   const [isUp, setIsUpvoted] = useState<boolean>(like || false);
   const [isChecked, setIsChecked] = useState(myVote);
+  const [isSolved, setIsSolved] = useState(solved);
   const allClusters = Array.from({ length: 7 }, (_, i) => `Cluster 0${i + 1}`);
   const [visibleClusters, setVisibleClusters] = useState(5);
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -82,17 +83,6 @@ function ProblemDetailsDisc() {
 
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription);
-  };
-
-  const handleUpVoteClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    if (isUp) {
-      handleUpVote((prevCount) => prevCount - 1);
-      setIsUpvoted(false);
-    } else {
-      handleUpVote((prevCount) => prevCount + 1);
-      setIsUpvoted(true);
-    }
   };
 
   const handleTextareaChange = (e) => {
@@ -310,13 +300,16 @@ function ProblemDetailsDisc() {
           <div className='flex flex-grow'></div>
           <div className='flex flex-col justify-end items-end'>
             <div className='flex select-none dark:text-[#636B74] text-[#636B74] font-normal text-xs'>
-              <div className="relative">
-                {
-                  solved ? <div className={`mr-2 flex h-4 w-4 items-center justify-center rounded border border-[#1F7A1F] bg-[#1F7A1F] dark:bg-[#1F7A1F] dark:border-[#1F7A1F]`}></div> 
-                  : <div className={`mr-2 flex h-4 w-4 items-center justify-center rounded border bg-[#C41C1C] border-[#C41C1C] dark:bg-[#C41C1C] dark:border-[#C41C1C]`}></div>
-                }
-              </div>
-              {solved ? "Mark as Solved" : "Mark as Unsolved"}
+              <button onClick={() => {setIsSolved(!isSolved);}}>
+                <div className="relative">
+                  {
+                    isSolved ? <div className={`mr-2 flex h-4 w-4 items-center justify-center rounded border border-[#1F7A1F] bg-[#1F7A1F] dark:bg-[#1F7A1F] dark:border-[#1F7A1F]`}></div> 
+                    : <div className={`mr-2 flex h-4 w-4 items-center justify-center rounded border bg-[#C41C1C] border-[#C41C1C] dark:bg-[#C41C1C] dark:border-[#C41C1C]`}></div>
+                  }
+                </div>
+              </button>
+              
+              {isSolved ? "Mark as Solved" : "Mark as Unsolved"}
             </div>
             <div className='text-xs font-semibold mt-2'>
               <FollowSwitch follow={follow} onFollowChange={handleFollowChange }/>
@@ -483,7 +476,7 @@ function ProblemDetailsDisc() {
                 commentCount={selectedCard.commentCount}/>
             </div>
             <div className='flex w-1 flex-col dark:border-[#12467B40] border-[#C7DFF7] rounded-lg my-2 mx-6'>
-              <textarea className='flex dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] dark:text-[#F0F4F8] text-[#171A1C] font-semibold rounded-lg h-15 max-h-20 min-h-10 min-w-120 placeholder:font-bold dark:placeholder:text-[#F0F4F8] placeholder:text-[#171A1C]' value={textareaValue} onChange={handleTextareaChange} placeholder='Write here ...'></textarea>
+              <textarea className='flex dark:bg-[#12467B40] bg-[#C7DFF7] dark:border-[#12467B40] border-[#C7DFF7] dark:text-[#F0F4F8] text-[#171A1C] font-normal rounded-lg h-15 max-h-20 min-h-10 min-w-120 placeholder:font-bold dark:placeholder:text-[#F0F4F8] placeholder:text-[#171A1C]' value={textareaValue} onChange={handleTextareaChange} placeholder='Write here ...'></textarea>
             </div>
             <div className='flex flex-row mr-4'>
               <div className='flex flex-grow'></div>

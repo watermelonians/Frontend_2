@@ -25,6 +25,7 @@ const postProps: PostCardProps = {
 }; 
 const TablesPage = () => {
   const [activePostId, setActivePostId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const [showModal, setShowModal] = useState(false);
   const handlePostCardClick = (postId) => {
     // Toggle the active post id between null and the clicked post id
@@ -33,6 +34,11 @@ const TablesPage = () => {
   const addCard = (newCard) => {
     
   };
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  
 
   // Generate a list of postcards with a modified onClick handler
   const postCards = [1, 2, 3, 4, 5, 6].map((id) => (
@@ -52,6 +58,8 @@ const TablesPage = () => {
           <div className="flex flex-row items-center bg-[#C7DFF7] px-2 py-1 rounded-lg mr-2">
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
               placeholder="Search Here"
               className="flex-grow bg-[#C7DFF7] border-none border-transparent placeholder:text-[#636B74] placeholder:font-semibold placeholder:text-sm"
             />
